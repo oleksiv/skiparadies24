@@ -1,0 +1,24 @@
+{
+  "name": "skiparadies24",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "import": "ts-node import.ts",
+    "start": "ts-node crawler.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "tslib": "^2.6.2"
+  },
+  "dependencies": {
+    "@shopware-pwa/shopware-6-client": "^1.6.1",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^21.4.1",
+    "uuidv4": "^6.2.13"
+  }
+}
