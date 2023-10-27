@@ -1,0 +1,100 @@
+{
+  "stock": 10,
+  "productNumber": "random",
+  "name": "random",
+  "taxId": "9d4a11eeaf3a41bea44fdfb599d57058",
+  "price": [
+    {
+      "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+      "net": 1,
+      "gross": 1,
+      "linked": true
+    }
+  ],
+  "variantListingConfig": {
+    "configuratorGroupConfig": [
+      {
+        "id": "d1f3079ffea34441b0b3e3096ac4821a",
+        "representation": "box",
+        "expressionForListings": true
+      },
+      {
+        "id": "e2d24e55b56b4a4a8f808478fbd30333",
+        "representation": "box",
+        "expressionForListings": false
+      }
+    ]
+  },
+  "children": [
+    {
+      "productNumber": "random.4",
+      "stock": 10,
+      "price": [
+        {
+          "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+          "net": 1,
+          "gross": 1,
+          "linked": true
+        }
+      ],
+      "options": [
+        {
+          "id": "4053fb11b4114d2cac7381c904651b6b"
+        },
+        {
+          "id": "ae821a4395f34b22b6dea9963c7406f2"
+        }
+      ]
+    },
+    {
+      "productNumber": "random.3",
+      "stock": 10,
+      "options": [
+        {
+          "id": "ea14a701771148d6b04045f99c502829"
+        },
+        {
+          "id": "ae821a4395f34b22b6dea9963c7406f2"
+        }
+      ]
+    },
+    {
+      "productNumber": "random.1",
+      "stock": 10,
+      "options": [
+        {
+          "id": "ea14a701771148d6b04045f99c502829"
+        },
+        {
+          "id": "0b9627a94fc2446498ec6abac0f03581"
+        }
+      ]
+    },
+    {
+      "productNumber": "random.2",
+      "stock": 10,
+      "options": [
+        {
+          "id": "4053fb11b4114d2cac7381c904651b6b"
+        },
+        {
+          "id": "0b9627a94fc2446498ec6abac0f03581"
+        }
+      ]
+    }
+  ],
+  "configuratorSettings": [
+    {
+      "optionId": "0b9627a94fc2446498ec6abac0f03581"
+    },
+    {
+      "optionId": "4053fb11b4114d2cac7381c904651b6b"
+    },
+    {
+      "optionId": "ae821a4395f34b22b6dea9963c7406f2"
+    },
+    {
+      "optionId": "ea14a701771148d6b04045f99c502829"
+    }
+  ]
+}

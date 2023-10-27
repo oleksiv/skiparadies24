@@ -36,20 +36,106 @@ import {uuid} from 'uuidv4';
         }, {headers}
     );
 
+
     // Create product
     const productCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
         {
-            "name": `Test ${uuid()}`,
-            "productNumber": uuid(),
-            "coverId": createdMediaId,
             "stock": 10,
-            "taxId": "018b66910b6a729095cfe1cfcbd51180",
+            "productNumber": `Product ${uuid()}`,
+            "name": `Test ${uuid()}`,
+            "taxId": "018b66910b6a729095cfe1cfcbd51180", // 0 percent
             "price": [
                 {
                     "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
                     "gross": 15,
                     "net": 10,
                     "linked": false
+                }
+            ],
+            "variantListingConfig": {
+                "configuratorGroupConfig": [
+                    {
+                        "id": "d1f3079ffea34441b0b3e3096ac4821a",
+                        "representation": "box",
+                        "expressionForListings": true
+                    },
+                    {
+                        "id": "e2d24e55b56b4a4a8f808478fbd30333",
+                        "representation": "box",
+                        "expressionForListings": false
+                    }
+                ]
+            },
+            "children": [
+                {
+                    "productNumber": `Product ${uuid()}`,
+                    "stock": 10,
+                    "price": [
+                        {
+                            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                            "gross": 20,
+                            "net": 15,
+                            "linked": false
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": "4053fb11b4114d2cac7381c904651b6b"
+                        },
+                        {
+                            "id": "ae821a4395f34b22b6dea9963c7406f2"
+                        }
+                    ]
+                },
+                {
+                    "productNumber": `Product ${uuid()}`,
+                    "stock": 10,
+                    "options": [
+                        {
+                            "id": "ea14a701771148d6b04045f99c502829"
+                        },
+                        {
+                            "id": "ae821a4395f34b22b6dea9963c7406f2"
+                        }
+                    ]
+                },
+                {
+                    "productNumber": `Product ${uuid()}`,
+                    "stock": 10,
+                    "options": [
+                        {
+                            "id": "ea14a701771148d6b04045f99c502829"
+                        },
+                        {
+                            "id": "0b9627a94fc2446498ec6abac0f03581"
+                        }
+                    ]
+                },
+                {
+                    "productNumber": `Product ${uuid()}`,
+                    "stock": 10,
+                    "options": [
+                        {
+                            "id": "4053fb11b4114d2cac7381c904651b6b"
+                        },
+                        {
+                            "id": "0b9627a94fc2446498ec6abac0f03581"
+                        }
+                    ]
+                }
+            ],
+            "configuratorSettings": [
+                {
+                    "optionId": "0b9627a94fc2446498ec6abac0f03581"
+                },
+                {
+                    "optionId": "4053fb11b4114d2cac7381c904651b6b"
+                },
+                {
+                    "optionId": "ae821a4395f34b22b6dea9963c7406f2"
+                },
+                {
+                    "optionId": "ea14a701771148d6b04045f99c502829"
                 }
             ]
         }, {headers}
