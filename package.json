@@ -6,6 +6,7 @@
   "scripts": {
     "import": "ts-node import.ts",
     "start": "ts-node crawler.ts",
+    "start2": "ts-node crawler2.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
