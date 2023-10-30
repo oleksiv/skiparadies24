@@ -48,7 +48,7 @@ async function upsertMedia(alt: string, src: string, headers: any) {
     }
 }
 
-async function upsertProduct(product: Product, productId: string, configuratorSettings: any[], headers: any) {
+async function createParent(product: Product, productId: string, configuratorSettings: any[], headers: any) {
     const productPrice = await parsePrice(product.availableSizes[0].sizePrice);
 
     try {
@@ -65,6 +65,7 @@ async function upsertProduct(product: Product, productId: string, configuratorSe
                 "id": productId,
                 "stock": 10,
                 "productNumber": productId,
+                "description": product.productDescriptionTabs.join('<br>'),
                 "name": product.productName,
                 "manufacturerId": hashedManufacturerId,
                 "taxId": "018b669100c5705d99f62820ab0514c5", // standard rate
@@ -124,7 +125,7 @@ async function upsertProduct(product: Product, productId: string, configuratorSe
     }
 }
 
-async function upsertOptions(product: { productColors: Product[] }, headers: any) {
+async function upsertProductOptions(product: { productColors: Product[] }, headers: any) {
     console.log("Fetching group options...");
     const groupOptionsData = await axios.get('https://www.skiparadies24.de/api/property-group-option?limit=999', {headers});
     console.log("Fetched group options.");
@@ -217,7 +218,7 @@ async function parsePrice(price: string) {
 
     for (let product of data) {
         console.log(`Processing product: ${product.productColors[0].productName}`);
-        const options = await upsertOptions(product, headers);
+        const options = await upsertProductOptions(product, headers);
 
         try {
             const firstProductColor = product.productColors[0];
@@ -225,7 +226,7 @@ async function parsePrice(price: string) {
             const productHash = crypto.createHash('md5').update(firstProductSize.productEAN).digest('hex');
 
             console.log(`Creating product: ${firstProductColor.productName}`);
-            const parent = await upsertProduct(firstProductColor, productHash, options.map(o => ({optionId: o.id})), headers);
+            const parent = await createParent(firstProductColor, productHash, options.map(o => ({optionId: o.id})), headers);
 
             for (let color of product.productColors) {
                 const productColorOption = options.find(option => option.name === color.chosenColor);
@@ -233,7 +234,7 @@ async function parsePrice(price: string) {
                     const productSizeOption = options.find(option => option.name === size.sizeValue);
                     const price = await parsePrice(size.sizePrice);
 
-                    const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [productColorOption, productSizeOption], headers);
+                    const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption.id}, {id: productSizeOption.id}], headers);
 
                     for (let i = 0; i < color.productImages.length; i++) {
                         console.log(`Creating media for: ${color.productName}`);
