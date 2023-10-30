@@ -5,8 +5,9 @@ import {Product} from "./models";
 
 (async () => {
     const file = fs.readFileSync('data/alpin-ski.json').toString();
-    const data: Product[] = JSON.parse(file);
+    const data: { productColors: Product[] }[] = JSON.parse(file);
 
+    console.log("Requesting authentication token...");
     const response: AxiosResponse<any, any> = await axios.post('https://www.skiparadies24.de/api/oauth/token',
         {
             "client_id": "administration",
@@ -17,6 +18,7 @@ import {Product} from "./models";
         })
 
     const auth: { access_token: string } = response.data;
+    console.log("Authentication successful.");
 
     const headers = {
         'Authorization': `Bearer ${auth.access_token}`,
@@ -26,149 +28,198 @@ import {Product} from "./models";
 
     // Create media
 
-    for (let product of data) {
-
-        for (let i = 0; i < product.images.length; i++) {
-            const image = product.images[i];
-
-            const createdMedia = await axios.post('https://www.skiparadies24.de/api/media?_response=true',
-                {
-                    title: `${product.title} ${i}`
-                }, {headers}
-            );
-
-            const createdMediaId = createdMedia.data.data.id;
-
-            await axios.post(`https://www.skiparadies24.de/api/_action/media/${createdMediaId}/upload?extension=jpg&_response=true`,
-                {
-                    url: image
-                }, {headers}
-            );
-        }
-
-
-        // Create product
-        const productCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
+    async function createMedia(title: string, src: string) {
+        const createdMedia = await axios.post('https://www.skiparadies24.de/api/media?_response=true',
             {
-                "stock": 10,
-                "productNumber": `Product ${uuid()}`,
-                "name": `Test ${uuid()}`,
-                "taxId": "018b66910b6a729095cfe1cfcbd51180", // 0 percent
-                "price": [
-                    {
-                        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
-                        "gross": 15,
-                        "net": 10,
-                        "linked": false
-                    }
-                ],
-                "variantListingConfig": {
-                    "configuratorGroupConfig": [
-                        {
-                            "id": "d1f3079ffea34441b0b3e3096ac4821a",
-                            "representation": "box",
-                            "expressionForListings": true
-                        },
-                        {
-                            "id": "e2d24e55b56b4a4a8f808478fbd30333",
-                            "representation": "box",
-                            "expressionForListings": false
-                        }
-                    ]
-                },
-                "children": [
-                    {
-                        "productNumber": `Product ${uuid()}`,
-                        "stock": 10,
-                        "price": [
-                            {
-                                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
-                                "gross": 20,
-                                "net": 15,
-                                "linked": false
-                            }
-                        ],
-                        "options": [
-                            {
-                                "id": "4053fb11b4114d2cac7381c904651b6b"
-                            },
-                            {
-                                "id": "ae821a4395f34b22b6dea9963c7406f2"
-                            }
-                        ]
-                    },
-                    {
-                        "productNumber": `Product ${uuid()}`,
-                        "stock": 10,
-                        "options": [
-                            {
-                                "id": "ea14a701771148d6b04045f99c502829"
-                            },
-                            {
-                                "id": "ae821a4395f34b22b6dea9963c7406f2"
-                            }
-                        ]
-                    },
-                    {
-                        "productNumber": `Product ${uuid()}`,
-                        "stock": 10,
-                        "options": [
-                            {
-                                "id": "ea14a701771148d6b04045f99c502829"
-                            },
-                            {
-                                "id": "0b9627a94fc2446498ec6abac0f03581"
-                            }
-                        ]
-                    },
-                    {
-                        "productNumber": `Product ${uuid()}`,
-                        "stock": 10,
-                        "options": [
-                            {
-                                "id": "4053fb11b4114d2cac7381c904651b6b"
-                            },
-                            {
-                                "id": "0b9627a94fc2446498ec6abac0f03581"
-                            }
-                        ]
-                    }
-                ],
-                "configuratorSettings": [
-                    {
-                        "optionId": "0b9627a94fc2446498ec6abac0f03581"
-                    },
-                    {
-                        "optionId": "4053fb11b4114d2cac7381c904651b6b"
-                    },
-                    {
-                        "optionId": "ae821a4395f34b22b6dea9963c7406f2"
-                    },
-                    {
-                        "optionId": "ea14a701771148d6b04045f99c502829"
-                    }
-                ]
+                title
             }, {headers}
         );
 
-        const createdProductId = productCreated.data.data.id;
-
-        const createdProductMedia = await axios.post(`https://www.skiparadies24.de/api/product-media?_response=true`,
+        await axios.post(`https://www.skiparadies24.de/api/_action/media/${createdMedia.data.data.id}/upload?extension=jpg&_response=true`,
             {
-                productId: createdProductId,
-                mediaId: createdMediaId,
+                url: src
             }, {headers}
         );
 
-        // Set cover image
-        const updatedProduct = await axios.patch(`https://www.skiparadies24.de/api/product/${createdProductId}?_response=true`,
-            {
-                coverId: createdProductMedia.data.data.id,
-            }, {headers}
-        );
+        return createdMedia;
     }
 
+    for (let product of data) {
+        console.log(`Processing product: ${product.productColors[0].productName}`);
 
+        console.log("Fetching group options...");
+        const groupOptionsData = await axios.get('https://www.skiparadies24.de/api/property-group-option?limit=999', {headers});
+        console.log("Fetched group options.");
 
-    console.log(updatedProduct.data);
+        const fetchedOptions = groupOptionsData.data.data as any[];
+
+        const options = [];
+        for (let color of product.productColors) {
+
+            let productColor = fetchedOptions.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
+
+            if (!productColor) {
+                const response = await axios.post('https://www.skiparadies24.de/api/property-group-option?_response=true', {
+                    "groupId": "269c7e40a54a462e884edb004c5f7bc8", // color
+                    "name": color.chosenColor
+                }, {headers});
+                productColor = response.data.data;
+                console.log(`Created Color: ${productColor.name}`);
+            } else {
+                console.log(`Color already exists: ${productColor.name}`);
+            }
+
+            options.push(productColor);
+
+            for (let size of color.availableSizes) {
+                let productSize = fetchedOptions.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
+                if (!productSize) {
+                    const response = await axios.post('https://www.skiparadies24.de/api/property-group-option?_response=true', {
+                        "groupId": "75f353b589d04bf48e8a9ab1f5422b0e", // size
+                        "name": size.sizeValue
+                    }, {headers});
+                    productSize = response.data.data;
+                    console.log(`Created Size: ${productSize.name}`);
+                } else {
+                    console.log(`Size already exists: ${productSize.name}`);
+                }
+
+                options.push(productSize);
+            }
+        }
+
+        const children = [];
+        for (let color of product.productColors) {
+
+            const createdMediaIds = [];
+
+            for (let i = 0; i < color.productImages.length; i++) {
+                console.log(`Creating media for: ${color.productName}`);
+
+                const image = color.productImages[i];
+
+                const createdMedia = await createMedia( `${color.productName} ${i}`, image);
+
+                createdMediaIds.push(createdMedia.data.data.id);
+            }
+
+            let productColor = options.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
+
+            for (let size of color.availableSizes) {
+                let productSize = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
+                const productPrice = parsePrice(size.sizePrice);
+
+                children.push({
+                    "productNumber": uuid(),
+                    "name": color.productName,
+                    "ean": size.productEAN,
+                    "stock": 10,
+                    "price": [
+                        {
+                            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                            "gross": productPrice, // ?
+                            "net": productPrice, // ?
+                            "linked": false
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": productColor.id,
+                        },
+                        {
+                            "id": productSize.id,
+                        }
+                    ]
+                })
+            }
+        }
+
+        if (product.productColors.length === 0) {
+            console.log('no products found');
+            continue;
+        }
+
+        const firstProduct = product.productColors[0];
+        const firstProductPrice = parsePrice(firstProduct.availableSizes[0].sizePrice);
+
+        console.log(`Creating product: ${firstProduct.productName}`);
+        try {
+            const parentCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
+                {
+                    "stock": 10,
+                    "productNumber": uuid(),
+                    "name": firstProduct.productName,
+                    "taxId": "018b669100c5705d99f62820ab0514c5", // standard rate
+                    "price": [
+                        {
+                            "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                            "gross": firstProductPrice, // ?
+                            "net": firstProductPrice, // ?
+                            "linked": false
+                        }
+                    ],
+                    "variantListingConfig": {
+                        "configuratorGroupConfig": [
+                            {
+                                "id": "269c7e40a54a462e884edb004c5f7bc8", // Color
+                                "representation": "box",
+                                "expressionForListings": true
+                            },
+                            {
+                                "id": "75f353b589d04bf48e8a9ab1f5422b0e", // Size
+                                "representation": "box",
+                                "expressionForListings": false
+                            }
+                        ]
+                    },
+                    // All available options for this product
+                    "configuratorSettings": options.map(o => {
+                        return {
+                            optionId: o.id,
+                        }
+                    })
+                }, {headers}
+            );
+
+            for (let child of children) {
+                const childCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
+                    child, {headers}
+                );
+
+                createMedia(child.)
+            }
+
+            fs.writeFileSync('data/created-product.json', JSON.stringify(parentCreated.data, null, 4));
+
+        } catch (e: any) {
+            console.log(e.toString());
+        }
+
+        console.log(`Finished processing product: ${product.productColors[0].productName}`);
+
+        //
+        // const createdProductId = productCreated.data.data.id;
+
+        // const createdProductMedia = await axios.post(`https://www.skiparadies24.de/api/product-media?_response=true`,
+        //     {
+        //         productId: createdProductId,
+        //         mediaId: createdMediaId,
+        //     }, {headers}
+        // );
+        //
+        // // Set cover image
+        // const updatedProduct = await axios.patch(`https://www.skiparadies24.de/api/product/${createdProductId}?_response=true`,
+        //     {
+        //         coverId: createdProductMedia.data.data.id,
+        //     }, {headers}
+        // );
+    }
 })();
+
+function parsePrice(price: string): number {
+    // Extract the numeric portion and replace comma with a period
+    const numericString = price.replace(/[^0-9,]/g, '').replace(',', '.');
+
+    // Convert to number and multiply by 100
+    return Math.round(parseFloat(numericString));
+}

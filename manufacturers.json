@@ -1,0 +1,554 @@
+[
+    {
+        "name": "ADIDAS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/153312_ADIDAS_mico.png"
+    },
+    {
+        "name": "ALPENGAUDI",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/115937_ALPENGAUDI_mico.png"
+    },
+    {
+        "name": "ALPINA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/163149_ALPINA_mico.png"
+    },
+    {
+        "name": "AQUALUNG",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105210_AQUALUNG_mico.png"
+    },
+    {
+        "name": "AQUASPHERE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105232_AQUASPHERE_mico.png"
+    },
+    {
+        "name": "ARENA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181847_ARENA_mico.png"
+    },
+    {
+        "name": "ASICS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/175816_ASICS_mico.png"
+    },
+    {
+        "name": "ATOMIC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/104250_ATOMIC_mico.png"
+    },
+    {
+        "name": "BAUER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/102101_BAUER_mico.png"
+    },
+    {
+        "name": "BAUERFEIND",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181023_BAUERFEIND_mico.png"
+    },
+    {
+        "name": "BECO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182022_BECO_mico.png"
+    },
+    {
+        "name": "BEST",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/115034_BEST_mico.png"
+    },
+    {
+        "name": "BEST BODY NUTRITION",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/084805_BESTBODYNUTRITION_mico.jpeg"
+    },
+    {
+        "name": "BESTWAY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182159_BESTWAY_mico.png"
+    },
+    {
+        "name": "BLACKROLL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/180936_BLACKROLL_mico.png"
+    },
+    {
+        "name": "Brooks",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/175710_Brooks_mico.png"
+    },
+    {
+        "name": "BUFF",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105709_BUFF_mico.png"
+    },
+    {
+        "name": "CAMELBAK",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181129_CAMELBAK_mico.png"
+    },
+    {
+        "name": "CARTAGO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100012_CARTAGO_mico.png"
+    },
+    {
+        "name": "CASCADE DESIGNS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095328_CASCADEDESIGNS_mico.png"
+    },
+    {
+        "name": "CEP",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/175648_CEP_mico.png"
+    },
+    {
+        "name": "CMP",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/175900_CMP_mico.png"
+    },
+    {
+        "name": "COPACABANA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/172200_COPACABANA_mico.png"
+    },
+    {
+        "name": "Cosmira",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/154610_Cosmira_mico.png"
+    },
+    {
+        "name": "CRAFT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183059_CRAFT_mico.png"
+    },
+    {
+        "name": "CYTEC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095449_CYTEC_mico.png"
+    },
+    {
+        "name": "DAINESE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/140939_DAINESE_mico.png"
+    },
+    {
+        "name": "DERBYSTAR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125625_DERBYSTAR_mico.png"
+    },
+    {
+        "name": "DEUSER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/094749_DEUSER_mico.png"
+    },
+    {
+        "name": "DEUTER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182115_DEUTER_mico.png"
+    },
+    {
+        "name": "DONIC SCHILDKRÖT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/140429_DONICSCHILDKRT_mico.png"
+    },
+    {
+        "name": "DUNLOP",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/102314_DUNLOP_mico.png"
+    },
+    {
+        "name": "EDELRID",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100531_EDELRID_mico.png"
+    },
+    {
+        "name": "EISBÄR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125719_EISBR_mico.png"
+    },
+    {
+        "name": "ELAN",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/094252_ELAN_mico.png"
+    },
+    {
+        "name": "ENERGETICS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181625_ENERGETICS_mico.png"
+    },
+    {
+        "name": "ERIMA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125656_ERIMA_mico.png"
+    },
+    {
+        "name": "etirel",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/103853_etirel_mico.png"
+    },
+    {
+        "name": "FALKE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183340_FALKE_mico.png"
+    },
+    {
+        "name": "FASHY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/155155_FASHY_mico.png"
+    },
+    {
+        "name": "FIREFLY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182312_FIREFLY_mico.png"
+    },
+    {
+        "name": "FISCHER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182414_FISCHER_mico.png"
+    },
+    {
+        "name": "FJÄLLRÄVEN",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182919_FJLLRVEN_mico.png"
+    },
+    {
+        "name": "G.I.G.A. DX",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125142_GIGADX_mico.png"
+    },
+    {
+        "name": "GIRO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/103009_GIRO_mico.png"
+    },
+    {
+        "name": "GORE WEAR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/155252_GOREWEAR_mico.png"
+    },
+    {
+        "name": "HEAD",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182313_HEAD_mico.png"
+    },
+    {
+        "name": "HERBERTZ",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100927_HERBERTZ_mico.png"
+    },
+    {
+        "name": "HOKA ONE ONE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181809_HOKAONEONE_mico.png"
+    },
+    {
+        "name": "HOLMENKOL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125422_HOLMENKOL_mico.png"
+    },
+    {
+        "name": "HORIZON FITNESS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182752_HORIZONFITNESS_mico.png"
+    },
+    {
+        "name": "HUMMEL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105813_HUMMEL_mico.png"
+    },
+    {
+        "name": "ICEPEAK",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181742_ICEPEAK_mico.png"
+    },
+    {
+        "name": "IPANEMA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/155434_IPANEMA_mico.png"
+    },
+    {
+        "name": "JAKO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/123803_JAKO_mico.png"
+    },
+    {
+        "name": "JOMA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/135321_JOMA_mico.png"
+    },
+    {
+        "name": "K2",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183555_K2_mico.png"
+    },
+    {
+        "name": "KASPER & RICHTER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100109_KASPERRICHTER_mico.png"
+    },
+    {
+        "name": "KEEN",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183400_KEEN_mico.png"
+    },
+    {
+        "name": "KEMPA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/132950_KEMPA_mico.png"
+    },
+    {
+        "name": "KHW",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/130302_KHW_mico.png"
+    },
+    {
+        "name": "KILLTEC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181930_KILLTEC_mico.png"
+    },
+    {
+        "name": "KOMPERDELL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/102216_KOMPERDELL_mico.png"
+    },
+    {
+        "name": "La Sportiva",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/101427_LaSportiva_mico.png"
+    },
+    {
+        "name": "LANGE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/140728_LANGE_mico.png"
+    },
+    {
+        "name": "LEAZY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095205_LEAZY_mico.png"
+    },
+    {
+        "name": "LEKI",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182456_LEKI_mico.png"
+    },
+    {
+        "name": "LÖFFLER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/123747_LFFLER_mico.png"
+    },
+    {
+        "name": "LOWA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181714_LOWA_mico.png"
+    },
+    {
+        "name": "LUHTA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183300_LUHTA_mico.png"
+    },
+    {
+        "name": "MAC IN A SAC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/122056_MACINASAC_mico.png"
+    },
+    {
+        "name": "MAIER SPORTS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182431_MAIERSPORTS_mico.png"
+    },
+    {
+        "name": "MAMMUT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181648_MAMMUT_mico.png"
+    },
+    {
+        "name": "McKINLEY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/155527_McKINLEY_mico.png"
+    },
+    {
+        "name": "MEINDL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/170609_MEINDL_mico.png"
+    },
+    {
+        "name": "MERRELL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/094731_MERRELL_mico.png"
+    },
+    {
+        "name": "MIKASA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095807_MIKASA_mico.png"
+    },
+    {
+        "name": "MIZUNO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124354_MIZUNO_mico.png"
+    },
+    {
+        "name": "MOLTEN EUROPE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/103645_MOLTENEUROPE_mico.png"
+    },
+    {
+        "name": "NAKAMURA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183007_NAKAMURA_mico.png"
+    },
+    {
+        "name": "Neualp",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/161432_Neualp_mico.png"
+    },
+    {
+        "name": "NEW BALANCE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182412_NEWBALANCE_mico.png"
+    },
+    {
+        "name": "NIKE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/162626_NIKE_mico.png"
+    },
+    {
+        "name": "NITRO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/102458_NITRO_mico.png"
+    },
+    {
+        "name": "NORDIC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/155611_NORDIC_mico.png"
+    },
+    {
+        "name": "NORDICA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/110335_NORDICA_mico.png"
+    },
+    {
+        "name": "OAKLEY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/164137_OAKLEY_mico.png"
+    },
+    {
+        "name": "ODLO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182644_ODLO_mico.png"
+    },
+    {
+        "name": "ON",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182449_ON_mico.png"
+    },
+    {
+        "name": "P.A.C.",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/123456_PAC_mico.png"
+    },
+    {
+        "name": "POLAR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124220_POLAR_mico.png"
+    },
+    {
+        "name": "POWERBAR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/094540_POWERBAR_mico.png"
+    },
+    {
+        "name": "PRO TOUCH",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182616_PROTOUCH_mico.png"
+    },
+    {
+        "name": "PROTEST",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183508_PROTEST_mico.png"
+    },
+    {
+        "name": "PUMA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183146_PUMA_mico.png"
+    },
+    {
+        "name": "RED CHILI",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095332_REDCHILI_mico.png"
+    },
+    {
+        "name": "REEBOK",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/101231_REEBOK_mico.png"
+    },
+    {
+        "name": "RELAGS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095952_RELAGS_mico.png"
+    },
+    {
+        "name": "REUSCH",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/094438_REUSCH_mico.png"
+    },
+    {
+        "name": "RIDER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095734_RIDER_mico.png"
+    },
+    {
+        "name": "RIVA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/135121_RIVA_mico.png"
+    },
+    {
+        "name": "ROCES",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125811_ROCES_mico.png"
+    },
+    {
+        "name": "RODE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095444_RODE_mico.png"
+    },
+    {
+        "name": "ROECKL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/123633_ROECKL_mico.png"
+    },
+    {
+        "name": "ROLLERBLADE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124624_ROLLERBLADE_mico.png"
+    },
+    {
+        "name": "ROSSIGNOL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100745_ROSSIGNOL_mico.png"
+    },
+    {
+        "name": "SALOMON",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/162703_SALOMON_mico.png"
+    },
+    {
+        "name": "SAUCONY",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/151154_SAUCONY_mico.png"
+    },
+    {
+        "name": "SCHILDKRÖT FITNESS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124013_SCHILDKRTFITNESS_mico.png"
+    },
+    {
+        "name": "SCHILDKRÖT FUN SPORTS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124151_SCHILDKRTFUNSPORTS_mico.png"
+    },
+    {
+        "name": "SCHNEIDER SPORTSWEAR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183648_SCHNEIDERSPORTSWEAR_mico.png"
+    },
+    {
+        "name": "SCHÖFFEL",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124750_SCHFFEL_mico.png"
+    },
+    {
+        "name": "SELECT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105321_SELECT_mico.png"
+    },
+    {
+        "name": "SIDAS",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/130018_SIDAS_mico.png"
+    },
+    {
+        "name": "SIGMA SPORT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/104158_SIGMASPORT_mico.png"
+    },
+    {
+        "name": "SILVERTON",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105005_SILVERTON_mico.png"
+    },
+    {
+        "name": "SMITH",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/104450_SMITH_mico.png"
+    },
+    {
+        "name": "SPANNRIT",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/114359_SPANNRIT_mico.png"
+    },
+    {
+        "name": "SPORTSDIVISION",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125316_SPORTSDIVISION_mico.png"
+    },
+    {
+        "name": "SPYDER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124921_SPYDER_mico.png"
+    },
+    {
+        "name": "SWIX",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/104426_SWIX_mico.png"
+    },
+    {
+        "name": "TALBOT/TORRO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/125918_TALBOTTORRO_mico.png"
+    },
+    {
+        "name": "TATONKA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100353_TATONKA_mico.png"
+    },
+    {
+        "name": "TECNOPRO",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182615_TECNOPRO_mico.png"
+    },
+    {
+        "name": "TEVA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124855_TEVA_mico.png"
+    },
+    {
+        "name": "THE NORTH FACE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/181908_THENORTHFACE_mico.png"
+    },
+    {
+        "name": "THERA-BAND",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/100134_THERABAND_mico.png"
+    },
+    {
+        "name": "THERM-IC",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/101811_THERMIC_mico.png"
+    },
+    {
+        "name": "THONI MARA",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124511_THONIMARA_mico.png"
+    },
+    {
+        "name": "TRIUMPH",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/095124_TRIUMPH_mico.png"
+    },
+    {
+        "name": "TRUE MOTION",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/173923_TRUEMOTION_mico.png"
+    },
+    {
+        "name": "UNDER ARMOUR",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/105444_UNDERARMOUR_mico.png"
+    },
+    {
+        "name": "UVEX",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/182517_UVEX_mico.png"
+    },
+    {
+        "name": "VAUDE",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/183419_VAUDE_mico.png"
+    },
+    {
+        "name": "VIBRAM",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/092647_VIBRAM_mico.png"
+    },
+    {
+        "name": "WEWO-FASHION",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/103053_WEWOFASHION_mico.png"
+    },
+    {
+        "name": "WILSON",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/103812_WILSON_mico.png"
+    },
+    {
+        "name": "ZIENER",
+        "image": "https://www.sport-hopfmann.de/out/pictures/generated/manufacturer/icon/200_200_90/124725_ZIENER_mico.png"
+    }
+]
