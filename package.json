@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "import": "ts-node import.ts",
-    "start": "ts-node crawler.ts",
-    "start2": "ts-node crawler2.ts",
-    "manufacturers": "ts-node manufacturers.ts",
+    "products-import": "ts-node products-import.ts",
+    "products-export": "ts-node products-export.ts",
+    "manufacturers-export": "ts-node manufacturers-export.ts",
+    "manufacturers-import": "ts-node manufacturers-import.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/md5": "^2.3.4",
     "@types/node": "^20.8.9",
     "tslib": "^2.6.2"
   },
@@ -20,6 +21,7 @@
     "@shopware-pwa/shopware-6-client": "^1.6.1",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",
+    "md5": "^2.3.0",
     "puppeteer": "^21.4.1",
     "uuidv4": "^6.2.13"
   }
