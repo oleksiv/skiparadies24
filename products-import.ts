@@ -89,11 +89,11 @@ async function createParent(product: Product, productId: string, configuratorSet
 
 
     try {
-        console.log(`Getting product ID: ${productId} - ${product.productName}`);
+        // console.log(`Getting product ID: ${productId} - ${product.productName}`);
 
         const existingProduct = await axios.get(`https://www.skiparadies24.de/api/product/${productId}`, {headers});
 
-        console.log(`Product already exist: ${product.productName}`);
+        // console.log(`Product already exist: ${product.productName}`);
 
         return existingProduct;
     } catch (e) {
@@ -102,6 +102,7 @@ async function createParent(product: Product, productId: string, configuratorSet
         const randomNum = await getRandomNumber(50, 300);
 
         const categoryIds = await getCategories(product, headers);
+        // console.log(categoryIds);
         const parentCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
             {
                 "id": productId,
@@ -141,12 +142,13 @@ async function createParent(product: Product, productId: string, configuratorSet
         );
 
         // assign product sales channel
-        // await axios.post('https://www.skiparadies24.de/api/product-visibility?_response=true',
-        //     {
-        //         productId: productId,
-        //         salesChannelId: '018b6691babd709aa2d1189f1924c4d9'
-        //     }, {headers}
-        // );
+        await axios.post('https://www.skiparadies24.de/api/product-visibility?_response=true',
+            {
+                productId: productId,
+                salesChannelId: '018b6691babd709aa2d1189f1924c4d9'
+            }, {headers}
+        );
+        console.log('Sales channel assigned');
 
 
         for (let i = 0; i < product.productImages.length; i++) {
@@ -227,11 +229,11 @@ async function createChild(parentId: string, productName: string, productEAN: st
     const sizeProductId = crypto.createHash('md5').update(productEAN).digest('hex');
 
     try {
-        console.log(`Getting Child product: ${productName}`);
+        // console.log(`Getting Child product: ${productName}`);
 
         const child = await axios.get(`https://www.skiparadies24.de/api/product/${sizeProductId}`, {headers});
 
-        console.log(`Child product already exist: ${productName}`);
+        // console.log(`Child product already exist: ${productName}`);
 
         return child;
     } catch (e) {
@@ -288,7 +290,7 @@ async function parsePrice(price: string) {
         const productHash = crypto.createHash('md5').update(`Parent ${firstProductSize.productEAN}`).digest('hex');
 
 
-        console.log(options.map(o => ({optionId: o.id, name: o.name})));
+        // console.log(options.map(o => ({optionId: o.id, name: o.name})));
 
         const uniqueOptionsObject: any = {};
         for (let setting of options) {
@@ -299,7 +301,7 @@ async function parsePrice(price: string) {
 
         const configuratorSettings = uniqueOptionsArray.map(o => ({optionId: o.id}));
 
-        console.log(uniqueOptionsArray.map(o => ({optionId: o.id, name: o.name})));
+        // console.log(uniqueOptionsArray.map(o => ({optionId: o.id, name: o.name})));
 
         // console.log(`Creating product: ${firstProductColor.productName}`);
 

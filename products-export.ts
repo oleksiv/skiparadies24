@@ -28,8 +28,6 @@ import * as fs from "fs";
 
     console.log(skiProducts.map(s => s.name));
 
-    return;
-
     const detailedProductData: { productColors: any[] }[] = [];
     for (const product of skiProducts) {
         await browserPage.goto(product.url);
