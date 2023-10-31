@@ -1,0 +1,60 @@
+POST https://www.skiparadies24.de/api/product?_response=true
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJhZG1pbmlzdHJhdGlvbiIsImp0aSI6IjNmODhiNjYzZjgyODIxMjk2NWY0ZTBkMzBmOWE0MDZiNDMzNjM5YmRmYjg1NTQwOTEwMDk3MjVjYWVmZWZmNTBhNzlhYTlhZTk0YmIzMjMyIiwiaWF0IjoxNjk4NzUzMDU5LjA4MTYzLCJuYmYiOjE2OTg3NTMwNTkuMDgxNjMyLCJleHAiOjE2OTg3NTM2NTkuMDc5NzUzLCJzdWIiOiIwMThiNjY5MWJhYzg3MTQ3YjcyZTUzNThkNmM5NzczMiIsInNjb3BlcyI6WyJ3cml0ZSIsImFkbWluIl19.E0PlYqIP6IoQGPLss4FBslsho8vk_KiAJ7d_MwmXIWRE4Z-Ln9G2itv-qiXq0qAPKN16opBEhCw_6_SuMEWEkfT5UrxcdrkEQXE9vp-8xB08GP1EO3-nG4EHanQzOW7aTvN26TCrNsaF6pgu9Bpl5z5uni8eRm2rVf3m0wPe1Qku6tcSTRqGdAE4QQikF7uVBeK36qFiyxury010rImNnTkYrMo1jFdiBEy9v7uDcdEqiK9qwbPW7WI8aEdwW6D19qI94ZhZgEH5Hwhls6QQeK8m4JM19N9ONPtaqgArqOaj-SMdIjHWBM2Vo0InvP_KR0Nj5hDvvqEmWZevi5rflA
+
+{
+  "id": "1b3953813d12ec6e485053dacf3d3ddc",
+  "stock": 177,
+  "productNumber": "1b3953813d12ec6e485053dacf3d3ddc",
+  "description": "<h2>McKinley Kinder Ski-Set Skitty </h2><h2>Ki.-Ski-Set Skitty</h2>\nSkiset mit geschraubter Bindung<br>\nKonstruktion: Power CAP, PU Kern, X-FLEX, Early Rise Rocker<br>\nBeliebter Kinder-Einstiegsski in coolem Design<br>\nfür Jungs und Mädels<br>\nIdeal für das Kinderski-Tauschsystem\n<ul>\n\t<li class=\"amIntersportInterfaceList\">mit geschraubter Bindung</li>\n\t<li class=\"amIntersportInterfaceList\">Early Rise Rocker</li>\n\t<li class=\"amIntersportInterfaceList\">Kinder-Einstiegsski</li>\n\t<li class=\"amIntersportInterfaceList\">Radius: 4m (80)</li>\n\t<li class=\"amIntersportInterfaceList\">Taillierung: 95-66-86 (80)</li>\n\t<li class=\"amIntersportInterfaceList\">Bindung: N CW45 J75 Bindung (Gripwalk kompatibel) inkl. (Z-Wert: 0,75-4,5)</li>\n</ul>\n<div class=\"itemCode\">\n<b>Artikelnummer:</b> <span>4037488-391</span>\n</div>",
+  "name": "McKinley Kinder Ski-Set Skitty",
+  "ean": "4025931480048",
+  "manufacturerId": "ed6845afe6b9a5c0f670d231e1834d35",
+  "taxId": "018b669100c5705d99f62820ab0514c5",
+  "price": [
+    {
+      "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+      "gross": 130,
+      "net": 130,
+      "linked": false
+    }
+  ],
+  "variantListingConfig": {
+    "configuratorGroupConfig": [
+      {
+        "id": "269c7e40a54a462e884edb004c5f7bc8",
+        "representation": "box",
+        "expressionForListings": true
+      },
+      {
+        "id": "75f353b589d04bf48e8a9ab1f5422b0e",
+        "representation": "box",
+        "expressionForListings": false
+      }
+    ]
+  },
+  "configuratorSettings": [
+    {
+      "optionId": "018b80ddb5097117a01211a29603b05f"
+    },
+    {
+      "optionId": "018b80e2b8e6739083d161dc08aec531"
+    },
+    {
+      "optionId": "018b80e2b99973f2be84330a3aa63879"
+    },
+    {
+      "optionId": "018b80e2ba687053bd04b462548459eb"
+    },
+    {
+      "optionId": "018b80ddb82a71ce87dac93de9e0a268"
+    }
+  ]
+}
+
+<> 2023-10-31T124945.401.json
+<> 2023-10-31T124940.401.json
+<> 2023-10-31T124936.401.json
+<> 2023-10-31T124931.401.json
+<> 2023-10-31T124920.400.json

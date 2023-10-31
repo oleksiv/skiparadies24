@@ -1,0 +1,11 @@
+POST https://www.skiparadies24.de/api/oauth/token
+Accept: application/json
+Content-Type: application/json
+
+{
+  "client_id": "administration",
+  "grant_type": "password",
+  "scopes": "write",
+  "username": "admin",
+  "password": "HKL43lL\"!4!"
+}
