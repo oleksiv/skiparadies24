@@ -4,6 +4,32 @@ import {Product} from "./models";
 import * as crypto from 'crypto';
 import {uuid} from "uuidv4";
 
+// Response interceptor
+axios.interceptors.response.use(
+    response => {
+        // If the response is successful, just return it
+        return response;
+    },
+    (error: any) => {
+        // Extract and format the error message
+        let errorMessage = '';
+
+        if (error.response) {
+            errorMessage = error.response.data.message || error.response.data || 'Server Error';
+        } else if (error.request) {
+            errorMessage = 'No response was received from the server.';
+        } else {
+            errorMessage = error.message;
+        }
+
+        // Optionally, log the error or send to an error tracking service
+        console.error(JSON.stringify(errorMessage, null, 4));
+
+        // Reject the promise with the formatted error message
+        return Promise.reject(new Error(errorMessage));
+    }
+);
+
 const BASE_URL = 'https://www.skiparadies24.de/api/';
 const AUTH_HEADERS = {
     'Accept': `application/json`,
@@ -57,14 +83,14 @@ async function getCategories(product: Product, headers: any): Promise<string[]> 
         const categoryHash = crypto.createHash('md5').update(categoryName).digest('hex');
 
         try {
-            const existingCategory = await axios.get(`https://www.skiparadies24.de/api/category/${categoryHash}`, { headers });
+            const existingCategory = await axios.get(`https://www.skiparadies24.de/api/category/${categoryHash}`, {headers});
             return existingCategory.data.data.id;
         } catch (e) {
             const categoryCreated = await axios.post('https://www.skiparadies24.de/api/category?_response=true', {
                 id: categoryHash,
                 parentId: parentId,
                 name: categoryName
-            }, { headers });
+            }, {headers});
 
             return categoryCreated.data.data.id;
         }
@@ -87,7 +113,6 @@ async function createParent(product: Product, productId: string, configuratorSet
     const productPrice = await parsePrice(firstSize.sizePrice);
 
 
-
     try {
         // console.log(`Getting product ID: ${productId} - ${product.productName}`);
 
@@ -102,7 +127,7 @@ async function createParent(product: Product, productId: string, configuratorSet
         const randomNum = await getRandomNumber(50, 300);
 
         const categoryIds = await getCategories(product, headers);
-        // console.log(categoryIds);
+
         const parentCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
             {
                 "id": productId,
@@ -141,15 +166,19 @@ async function createParent(product: Product, productId: string, configuratorSet
             }, {headers}
         );
 
+        // console.log('Assigning sales channel ');
+
+
         // assign product sales channel
         await axios.post('https://www.skiparadies24.de/api/product-visibility?_response=true',
             {
                 productId: productId,
-                salesChannelId: '018b6691babd709aa2d1189f1924c4d9'
+                salesChannelId: '018b6691babd709aa2d1189f1924c4d9',
+                visibility: 30
             }, {headers}
         );
-        console.log('Sales channel assigned');
 
+        // console.log('Sales channel assigned');
 
         for (let i = 0; i < product.productImages.length; i++) {
 
@@ -188,6 +217,11 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
     const options = [];
     for (let color of product.productColors) {
 
+        let variantCoverImage = undefined;
+        if (color.productImages.length) {
+            variantCoverImage = await upsertMedia(color.productName, color.productImages[0], headers);
+        }
+        
         let productColor = fetchedOptions.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
 
         if (!productColor) {
@@ -195,7 +229,12 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
                 "groupId": "269c7e40a54a462e884edb004c5f7bc8", // color
                 "name": color.chosenColor
             }, {headers});
-            productColor = response.data.data;
+
+            productColor = variantCoverImage ? {
+                ...response.data.data,
+                mediaId: variantCoverImage.data.data.id
+            } : response.data.data;
+
             // console.log(`Created Color: ${productColor.name}`);
         } else {
             // console.log(`Color already exists: ${productColor.name}`);
@@ -210,7 +249,12 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
                     "groupId": "75f353b589d04bf48e8a9ab1f5422b0e", // size
                     "name": size.sizeValue
                 }, {headers});
-                productSize = response.data.data;
+
+                productSize = variantCoverImage ? {
+                    ...response.data.data,
+                    mediaId: variantCoverImage.data.data.id
+                } : response.data.data;
+
                 // console.log(`Created Size: ${productSize.name}`);
             } else {
                 // console.log(`Size already exists: ${productSize.name}`);
@@ -220,12 +264,15 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
         }
     }
 
-    return options;
+    const uniqueOptionsObject: any = {};
+    for (let setting of options) {
+        uniqueOptionsObject[setting.id] = setting;
+    }
+
+    return Object.values(uniqueOptionsObject) as any[];
 }
 
-async function createChild(parentId: string, productName: string, productEAN: string, productPrice: number, options: {
-    id: string
-}[], headers: any) {
+async function createChild(parentId: string, productName: string, productEAN: string, productPrice: number, options: any[], headers: any) {
     const sizeProductId = crypto.createHash('md5').update(productEAN).digest('hex');
 
     try {
@@ -281,36 +328,29 @@ async function parsePrice(price: string) {
         const options = await upsertProductOptions(product, headers);
 
         const firstProductColor = product.productColors[0];
+
         // if (firstProductColor.productName !== 'McKinley Kinder Ski-Set Skitty') {
         //     continue;
         // }
+
         console.log(`Processing product: ${product.productColors[0].productName}`);
 
         const firstProductSize = firstProductColor.availableSizes[0];
         const productHash = crypto.createHash('md5').update(`Parent ${firstProductSize.productEAN}`).digest('hex');
 
-
-        // console.log(options.map(o => ({optionId: o.id, name: o.name})));
-
-        const uniqueOptionsObject: any = {};
-        for (let setting of options) {
-            uniqueOptionsObject[setting.id] = setting;
-        }
-
-        const uniqueOptionsArray = Object.values(uniqueOptionsObject) as any[];
-
-        const configuratorSettings = uniqueOptionsArray.map(o => ({optionId: o.id}));
-
-        // console.log(uniqueOptionsArray.map(o => ({optionId: o.id, name: o.name})));
+        const configuratorSettings = options.map((s) => ({
+            optionId: s.id,
+            mediaId: s.mediaId
+        }));
 
         // console.log(`Creating product: ${firstProductColor.productName}`);
 
         const parent = await createParent(firstProductColor, productHash, configuratorSettings, headers);
 
         for (let color of product.productColors) {
-            const productColorOption = uniqueOptionsArray.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
+            const productColorOption = options.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
             for (let size of color.availableSizes) {
-                const productSizeOption = uniqueOptionsArray.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
+                const productSizeOption = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
                 const price = await parsePrice(size.sizePrice);
 
                 const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption.id}, {id: productSizeOption.id}], headers);
@@ -335,7 +375,7 @@ async function parsePrice(price: string) {
             }
         }
 
-        console.log(`Finished processing product: ${product.productColors[0].productName}`);
+        // console.log(`Finished processing product: ${product.productColors[0].productName}`);
     }
 })();
 
