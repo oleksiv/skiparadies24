@@ -66,7 +66,7 @@ import * as fs from "fs";
 
     console.log('Scraping complete.');
 
-    fs.writeFileSync('data/alpin-ski.json', JSON.stringify(detailedProductData, null, 4));
+    fs.writeFileSync('data/alpin-ski2.json', JSON.stringify(detailedProductData, null, 4));
 
     await browserInstance.close();
 })();
@@ -118,11 +118,7 @@ function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
         }
     });
 
-    const productDescriptionTabs: any[] = [];
-    loadedHtml('#contentamount .tabContent').each((index, element) => {
-        const tabContent = loadedHtml(element).html() as string;
-        productDescriptionTabs.push(tabContent);
-    });
+    let description = loadedHtml('#beschreibung').remove('h2').remove('.itemCode');
 
     return {
         brand,
@@ -133,6 +129,6 @@ function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
         chosenColor,
         productCategories,
         productImages,
-        productDescriptionTabs
+        productDescription: description!.html()!.trim()
     };
 }

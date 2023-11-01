@@ -133,7 +133,7 @@ async function createParent(product: Product, productId: string, configuratorSet
                 "id": productId,
                 "stock": randomNum,
                 "productNumber": productId,
-                "description": product.productDescriptionTabs[0].trim(),
+                "description": product.productDescription.trim(),
                 "name": product.productName,
                 "ean": firstSize.productEAN,
                 "manufacturerId": hashedManufacturerId,
@@ -178,11 +178,10 @@ async function createParent(product: Product, productId: string, configuratorSet
             }, {headers}
         );
 
+
+        let firstProductMedia = null;
         // console.log('Sales channel assigned');
-
         for (let i = 0; i < product.productImages.length; i++) {
-
-            // console.log(`Creating media for: ${product.productName}`);
 
             const imageSrc = product.productImages[i];
 
@@ -195,19 +194,44 @@ async function createParent(product: Product, productId: string, configuratorSet
                 }, {headers}
             );
 
+            if (i === 0) {
+                firstProductMedia = productMedia;
+            }
+        }
+
+        if (firstProductMedia) {
+            // const sizeProductId = crypto.createHash('md5').update(productEAN).digest('hex');
+
             // Set cover image
             await axios.patch(`https://www.skiparadies24.de/api/product/${parentCreated.data.data.id}?_response=true`,
                 {
-                    coverId: productMedia.data.data.id,
+                    coverId: firstProductMedia.data.data.id,
                 }, {headers}
             );
+
+
+            // await axios.patch(`https://www.skiparadies24.de/api/product/${parentCreated.data.data.id}?_response=true`,
+            //     {
+            //         id: parentCreated.data.data.id,
+            //         configuratorSettings: [
+            //             {
+            //                 mediaId: firstProductMedia.data.data.id
+            //             }
+            //         ]
+            //     }, {headers}
+            // );
         }
 
         return parentCreated;
     }
 }
 
-async function upsertProductOptions(product: { productColors: Product[] }, headers: any) {
+async function upsertProductOptions(product: { productColors: Product[] }, headers: any): Promise<{
+    id: string,
+    name: string,
+    groupId: string,
+    mediaId: string
+}[]> {
     // console.log("Fetching group options...");
     const groupOptionsData = await axios.get('https://www.skiparadies24.de/api/property-group-option?limit=999', {headers});
     // console.log("Fetched group options.");
@@ -221,7 +245,9 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
         if (color.productImages.length) {
             variantCoverImage = await upsertMedia(color.productName, color.productImages[0], headers);
         }
-        
+
+        console.log(variantCoverImage?.data?.data?.id);
+
         let productColor = fetchedOptions.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
 
         if (!productColor) {
@@ -230,17 +256,23 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
                 "name": color.chosenColor
             }, {headers});
 
-            productColor = variantCoverImage ? {
-                ...response.data.data,
-                mediaId: variantCoverImage.data.data.id
-            } : response.data.data;
+            options.push({
+                id: response.data.data.id,
+                name: response.data.data.name,
+                groupId: response.data.data.groupId,
+                mediaId: variantCoverImage ? variantCoverImage.data.data.id : null,
+            });
 
             // console.log(`Created Color: ${productColor.name}`);
         } else {
-            // console.log(`Color already exists: ${productColor.name}`);
+            options.push({
+                id: productColor.id,
+                name: productColor.name,
+                groupId: productColor.groupId,
+                mediaId: variantCoverImage ? variantCoverImage.data.data.id : null,
+            });
         }
 
-        options.push(productColor);
 
         for (let size of color.availableSizes) {
             let productSize = fetchedOptions.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
@@ -250,17 +282,23 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
                     "name": size.sizeValue
                 }, {headers});
 
-                productSize = variantCoverImage ? {
-                    ...response.data.data,
-                    mediaId: variantCoverImage.data.data.id
-                } : response.data.data;
+                options.push({
+                    id: response.data.data.id,
+                    name: response.data.data.name,
+                    groupId: response.data.data.groupId,
+                });
+
 
                 // console.log(`Created Size: ${productSize.name}`);
             } else {
+                options.push({
+                    id: productSize.id,
+                    name: productSize.name,
+                    groupId: productSize.groupId,
+                });
                 // console.log(`Size already exists: ${productSize.name}`);
             }
 
-            options.push(productSize);
         }
     }
 
@@ -325,13 +363,14 @@ async function parsePrice(price: string) {
     const headers = {...AUTH_HEADERS, 'Authorization': `Bearer ${authToken}`};
 
     for (let product of data) {
-        const options = await upsertProductOptions(product, headers);
-
         const firstProductColor = product.productColors[0];
 
-        // if (firstProductColor.productName !== 'McKinley Kinder Ski-Set Skitty') {
-        //     continue;
-        // }
+        if (firstProductColor.productName !== 'McKinley Kinder Ski-Set Skitty') {
+            continue;
+        }
+
+
+        const options = await upsertProductOptions(product, headers);
 
         console.log(`Processing product: ${product.productColors[0].productName}`);
 
@@ -343,8 +382,6 @@ async function parsePrice(price: string) {
             mediaId: s.mediaId
         }));
 
-        // console.log(`Creating product: ${firstProductColor.productName}`);
-
         const parent = await createParent(firstProductColor, productHash, configuratorSettings, headers);
 
         for (let color of product.productColors) {
@@ -353,7 +390,7 @@ async function parsePrice(price: string) {
                 const productSizeOption = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
                 const price = await parsePrice(size.sizePrice);
 
-                const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption.id}, {id: productSizeOption.id}], headers);
+                const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption!.id}, {id: productSizeOption!.id}], headers);
 
                 for (let i = 0; i < color.productImages.length; i++) {
                     // console.log(`Creating media for: ${color.productName}`);

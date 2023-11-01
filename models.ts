@@ -7,7 +7,7 @@ export interface Product {
     chosenColor: string;
     productCategories: string[];
     productImages: string[];
-    productDescriptionTabs: string[];
+    productDescription: string;
 }
 
 export interface Size {
