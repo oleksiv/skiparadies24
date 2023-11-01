@@ -2,33 +2,7 @@ import axios, {AxiosResponse} from 'axios';
 import * as fs from "fs";
 import {Product} from "./models";
 import * as crypto from 'crypto';
-import {uuid} from "uuidv4";
-
-// Response interceptor
-axios.interceptors.response.use(
-    response => {
-        // If the response is successful, just return it
-        return response;
-    },
-    (error: any) => {
-        // Extract and format the error message
-        let errorMessage = '';
-
-        if (error.response) {
-            errorMessage = error.response.data.message || error.response.data || 'Server Error';
-        } else if (error.request) {
-            errorMessage = 'No response was received from the server.';
-        } else {
-            errorMessage = error.message;
-        }
-
-        // Optionally, log the error or send to an error tracking service
-        console.error(JSON.stringify(errorMessage, null, 4));
-
-        // Reject the promise with the formatted error message
-        return Promise.reject(new Error(errorMessage));
-    }
-);
+import {v4} from "uuid";
 
 const BASE_URL = 'https://www.skiparadies24.de/api/';
 const AUTH_HEADERS = {
@@ -246,8 +220,6 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
             variantCoverImage = await upsertMedia(color.productName, color.productImages[0], headers);
         }
 
-        console.log(variantCoverImage?.data?.data?.id);
-
         let productColor = fetchedOptions.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
 
         if (!productColor) {
@@ -310,25 +282,17 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
     return Object.values(uniqueOptionsObject) as any[];
 }
 
-async function createChild(parentId: string, productName: string, productEAN: string, productPrice: number, options: any[], headers: any) {
-    const sizeProductId = crypto.createHash('md5').update(productEAN).digest('hex');
-
+async function createChild(childrenProductHash: string, parentId: string, productName: string, productEAN: string, productPrice: number, options: any[], headers: any) {
     try {
-        // console.log(`Getting Child product: ${productName}`);
-
-        const child = await axios.get(`https://www.skiparadies24.de/api/product/${sizeProductId}`, {headers});
-
-        // console.log(`Child product already exist: ${productName}`);
-
-        return child;
+        return await axios.get(`https://www.skiparadies24.de/api/product/${childrenProductHash}`, {headers});
     } catch (e) {
         const randomNum = await getRandomNumber(50, 300);
 
         return await axios.post('https://www.skiparadies24.de/api/product?_response=true',
             {
-                "id": sizeProductId,
+                "id": childrenProductHash,
                 "parentId": parentId,
-                "productNumber": uuid(),
+                "productNumber": v4(),
                 "name": productName,
                 "ean": productEAN,
                 "stock": randomNum,
@@ -356,63 +320,75 @@ async function parsePrice(price: string) {
 }
 
 (async () => {
-    const file = fs.readFileSync('data/alpin-ski.json').toString();
-    const data: { productColors: Product[] }[] = JSON.parse(file);
+    const files = fs.readdirSync('data').filter(file => file.endsWith('.json'));
 
-    const authToken = await getAuthToken();
-    const headers = {...AUTH_HEADERS, 'Authorization': `Bearer ${authToken}`};
+    for (const filename of files) {
 
-    for (let product of data) {
-        const firstProductColor = product.productColors[0];
+        console.log(`Started processing ${filename}`);
 
-        if (firstProductColor.productName !== 'McKinley Kinder Ski-Set Skitty') {
-            continue;
-        }
+        const fileContent = fs.readFileSync(`data/${filename}`).toString();
+        const data: { productColors: Product[] }[] = JSON.parse(fileContent);
 
+        const authToken = await getAuthToken();
+        const headers = {...AUTH_HEADERS, 'Authorization': `Bearer ${authToken}`};
 
-        const options = await upsertProductOptions(product, headers);
+        let i = 0;
+        console.log(`${data.length} products detected`);
+        for (let arr of data) {
+            i++;
+            if (i > 30) {
+                continue;
+            }
+            const parentProduct = arr.productColors[0];
 
-        console.log(`Processing product: ${product.productColors[0].productName}`);
+            console.log(`Processing product ${i}: ${arr.productColors[0].productName}`);
 
-        const firstProductSize = firstProductColor.availableSizes[0];
-        const productHash = crypto.createHash('md5').update(`Parent ${firstProductSize.productEAN}`).digest('hex');
+            const parentProductHash = crypto.createHash('md5').update(parentProduct.productUrl).digest('hex');
 
-        const configuratorSettings = options.map((s) => ({
-            optionId: s.id,
-            mediaId: s.mediaId
-        }));
+            const options = await upsertProductOptions(arr, headers);
 
-        const parent = await createParent(firstProductColor, productHash, configuratorSettings, headers);
+            const configuratorSettings = options.map((s) => ({
+                optionId: s.id,
+                mediaId: s.mediaId
+            }));
 
-        for (let color of product.productColors) {
-            const productColorOption = options.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
-            for (let size of color.availableSizes) {
-                const productSizeOption = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
-                const price = await parsePrice(size.sizePrice);
+            const parent = await createParent(parentProduct, parentProductHash, configuratorSettings, headers);
 
-                const child = await createChild(parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption!.id}, {id: productSizeOption!.id}], headers);
+            for (let color of arr.productColors) {
 
-                for (let i = 0; i < color.productImages.length; i++) {
-                    // console.log(`Creating media for: ${color.productName}`);
-                    const imageSrc = color.productImages[i];
-                    const createdMedia = await upsertMedia(`${color.productName} ${i}`, imageSrc, headers);
+                const productColorOption = options.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
 
-                    const productMedia = await axios.post(`${BASE_URL}/product-media?_response=true`,
-                        {
-                            productId: child.data.data.id,
-                            mediaId: createdMedia.data.data.id,
-                        }, {headers});
+                for (let size of color.availableSizes) {
+                    const productSizeOption = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
+                    const price = await parsePrice(size.sizePrice);
 
-                    // Set cover image for the product
-                    await axios.patch(`${BASE_URL}/product/${child.data.data.id}?_response=true`,
-                        {
-                            coverId: productMedia.data.data.id,
-                        }, {headers});
+                    const childrenProductHash =  crypto.createHash('md5').update(`${color.productUrl} - ${size.productEAN}`).digest('hex'); // generate unique children ID for every parent product.
+
+                    const child = await createChild(childrenProductHash, parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption!.id}, {id: productSizeOption!.id}], headers);
+
+                    for (let i = 0; i < color.productImages.length; i++) {
+                        // console.log(`Creating media for: ${color.productName}`);
+                        const imageSrc = color.productImages[i];
+                        const createdMedia = await upsertMedia(`${color.productName} ${i}`, imageSrc, headers);
+
+                        const productMedia = await axios.post(`${BASE_URL}/product-media?_response=true`,
+                            {
+                                productId: child.data.data.id,
+                                mediaId: createdMedia.data.data.id,
+                            }, {headers});
+
+                        // Set cover image for the product
+                        await axios.patch(`${BASE_URL}/product/${child.data.data.id}?_response=true`,
+                            {
+                                coverId: productMedia.data.data.id,
+                            }, {headers});
+                    }
                 }
             }
-        }
 
-        // console.log(`Finished processing product: ${product.productColors[0].productName}`);
+            // console.log(`Finished processing product: ${product.productColors[0].productName}`);
+        }
     }
+
 })();
 

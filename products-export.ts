@@ -3,12 +3,13 @@ import * as cheerio from 'cheerio';
 import { CheerioAPI } from 'cheerio';
 import * as fs from "fs";
 
+const CATEGORY: string = 'zubehoer-wachs-bindungen';
 (async () => {
     const browserInstance = await puppeteer.launch({ headless: false });
     const browserPage = await browserInstance.newPage();
     await browserPage.setViewport({ width: 1200, height: 1024 });
 
-    await browserPage.goto('https://www.sport-hopfmann.de/wintersport-sport/alpin-ski/?filter=f5:o100.00-99999');
+    await browserPage.goto(`https://www.sport-hopfmann.de/wintersport-sport/${CATEGORY}/?filter=f5:o100.00-99999`);
     await browserPage.waitForSelector('#productList');
 
     const pageHtml = await browserPage.content();
@@ -26,7 +27,6 @@ import * as fs from "fs";
         }
     });
 
-    console.log(skiProducts.map(s => s.name));
 
     const detailedProductData: { productColors: any[] }[] = [];
     for (const product of skiProducts) {
@@ -66,7 +66,7 @@ import * as fs from "fs";
 
     console.log('Scraping complete.');
 
-    fs.writeFileSync('data/alpin-ski2.json', JSON.stringify(detailedProductData, null, 4));
+    fs.writeFileSync(`data/${CATEGORY}.json`, JSON.stringify(detailedProductData, null, 4));
 
     await browserInstance.close();
 })();
@@ -118,7 +118,10 @@ function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
         }
     });
 
-    let description = loadedHtml('#beschreibung').remove('h2').remove('.itemCode');
+    loadedHtml('#beschreibung h2').remove();
+    loadedHtml('#beschreibung .itemCode').remove();
+
+    const productDescription = loadedHtml('#beschreibung')!.html()!.trim();
 
     return {
         brand,
@@ -129,6 +132,6 @@ function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
         chosenColor,
         productCategories,
         productImages,
-        productDescription: description!.html()!.trim()
+        productDescription
     };
 }
