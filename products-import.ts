@@ -199,7 +199,7 @@ async function createParent(product: Product, productId: string, configuratorSet
     }
 }
 
-async function upsertProductOptions(product: { productColors: Product[] }, headers: any): Promise<{
+async function upsertProductOptions(productVariants: Product[], headers: any): Promise<{
     id: string,
     name: string,
     groupId: string,
@@ -212,7 +212,7 @@ async function upsertProductOptions(product: { productColors: Product[] }, heade
     const fetchedOptions = groupOptionsData.data.data as any[];
 
     const options = [];
-    for (let color of product.productColors) {
+    for (let color of productVariants) {
 
         let variantCoverImage = undefined;
         if (color.productImages.length) {
@@ -326,19 +326,19 @@ async function parsePrice(price: string) {
         console.log(`Started processing ${filename}`);
 
         const fileContent = fs.readFileSync(`data/${filename}`).toString();
-        const data: { productColors: Product[] }[] = JSON.parse(fileContent);
+        const data: Product[][] = JSON.parse(fileContent);
 
         const authToken = await getAuthToken();
         const headers = {...AUTH_HEADERS, 'Authorization': `Bearer ${authToken}`};
 
         let i = 0;
         console.log(`${data.length} products detected`);
-        for (let arr of data) {
+        for (let productVariants of data) {
             i++;
             if (i > 30) {
                 continue;
             }
-            const parentProduct = arr.productColors[0];
+            const parentProduct = productVariants[0];
 
             const parentProductHash = crypto.createHash('md5').update(parentProduct.productUrl).digest('hex');
 
@@ -350,7 +350,7 @@ async function parsePrice(price: string) {
                 console.log(`${i} | Adding | ${parentProduct.productName}`);
             }
 
-            const options = await upsertProductOptions(arr, headers);
+            const options = await upsertProductOptions(productVariants, headers);
 
             const configuratorSettings = options.map((s) => ({
                 optionId: s.id,
@@ -359,7 +359,7 @@ async function parsePrice(price: string) {
 
             const parent = await createParent(parentProduct, parentProductHash, configuratorSettings, headers);
 
-            for (let color of arr.productColors) {
+            for (let color of productVariants) {
 
                 const productColorOption = options.find(option => option.name === color.chosenColor && option.groupId === '269c7e40a54a462e884edb004c5f7bc8');
 
@@ -391,7 +391,7 @@ async function parsePrice(price: string) {
                 }
             }
 
-            // console.log(`Finished processing product: ${product.productColors[0].productName}`);
+            console.log(`Finished processing product: ${productVariants[0].productName}`);
         }
     }
 
