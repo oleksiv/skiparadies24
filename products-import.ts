@@ -3,6 +3,32 @@ import * as fs from "fs";
 import {Product} from "./models";
 import * as crypto from 'crypto';
 
+// Response interceptor
+// axios.interceptors.response.use(
+//     response => {
+//         // If the response is successful, just return it
+//         return response;
+//     },
+//     (error: any) => {
+//         // Extract and format the error message
+//         let errorMessage = '';
+//
+//         if (error.response) {
+//             errorMessage = error.response.data.message || error.response.data || 'Server Error';
+//         } else if (error.request) {
+//             errorMessage = 'No response was received from the server.';
+//         } else {
+//             errorMessage = error.message;
+//         }
+//
+//         // Optionally, log the error or send to an error tracking service
+//         console.error(JSON.stringify(errorMessage, null, 4));
+//
+//         // Reject the promise with the formatted error message
+//         return Promise.reject(new Error(errorMessage));
+//     }
+// );
+
 const BASE_URL = 'https://www.skiparadies24.de/api/';
 const AUTH_HEADERS = {
     'Accept': `application/json`,
@@ -97,6 +123,7 @@ async function createParent(product: Product, productId: string, configuratorSet
     } catch (e) {
         const hashedManufacturerId = crypto.createHash('md5').update(product.brand).digest('hex');
 
+        console.log(`${hashedManufacturerId} - ${product.brand} - manufacturer`);
         const randomNum = await getRandomNumber(50, 300);
 
         const categoryIds = await getCategories(product, headers);
@@ -109,7 +136,7 @@ async function createParent(product: Product, productId: string, configuratorSet
                 "description": product.productDescription.trim(),
                 "name": product.productName,
                 "ean": firstSize.productEAN,
-                "manufacturerId": hashedManufacturerId,
+                ...(product.brand ? {manufacturerId: hashedManufacturerId} : {}),
                 "taxId": "018b669100c5705d99f62820ab0514c5", // standard rate
                 "categories": categoryIds.map(id => ({id})),
                 "price": [
@@ -357,6 +384,7 @@ async function parsePrice(price: string) {
                 mediaId: s.mediaId
             }));
 
+            console.log(parentProduct.productUrl);
             const parent = await createParent(parentProduct, parentProductHash, configuratorSettings, headers);
 
             for (let color of productVariants) {
