@@ -2,7 +2,6 @@ import axios, {AxiosResponse} from 'axios';
 import * as fs from "fs";
 import {Product} from "./models";
 import * as crypto from 'crypto';
-import {v4} from "uuid";
 
 const BASE_URL = 'https://www.skiparadies24.de/api/';
 const AUTH_HEADERS = {
@@ -341,9 +340,15 @@ async function parsePrice(price: string) {
             }
             const parentProduct = arr.productColors[0];
 
-            console.log(`Processing product ${i}: ${arr.productColors[0].productName}`);
-
             const parentProductHash = crypto.createHash('md5').update(parentProduct.productUrl).digest('hex');
+
+            try {
+                const prod = await axios.get(`${BASE_URL}product/${parentProductHash}`, {headers});
+                console.log(`${i} | Exists | ${parentProduct.productName}`)
+                continue;
+            } catch (e) {
+                console.log(`${i} | Adding | ${parentProduct.productName}`);
+            }
 
             const options = await upsertProductOptions(arr, headers);
 
@@ -362,7 +367,7 @@ async function parsePrice(price: string) {
                     const productSizeOption = options.find(option => option.name === size.sizeValue && option.groupId === '75f353b589d04bf48e8a9ab1f5422b0e');
                     const price = await parsePrice(size.sizePrice);
 
-                    const childrenProductHash =  crypto.createHash('md5').update(`${color.productUrl} - ${size.productEAN}`).digest('hex'); // generate unique children ID for every parent product.
+                    const childrenProductHash = crypto.createHash('md5').update(`${color.productUrl} - ${size.productEAN}`).digest('hex'); // generate unique children ID for every parent product.
 
                     const child = await createChild(childrenProductHash, parent.data.data.id, color.productName, size.productEAN, price, [{id: productColorOption!.id}, {id: productSizeOption!.id}], headers);
 

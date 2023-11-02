@@ -1,7 +1,7 @@
-import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 import {CheerioAPI} from 'cheerio';
-import * as fs from "fs";
+import {promises as fsPromises} from "fs";
+import puppeteer from 'puppeteer';
 
 const CATEGORIES = [
     'alpin-ski',
@@ -20,80 +20,106 @@ const CATEGORIES = [
     'snowboards',
     'zubehoer-wachs-bindungen',
 ];
-(async () => {
-    const browserInstance = await puppeteer.launch({headless: false});
-    const browserPage = await browserInstance.newPage();
-    await browserPage.setViewport({width: 1200, height: 1024});
 
-    for (let category of CATEGORIES) {
-        const fileExists = fs.existsSync(`data/${category}.json`)
-        if (fileExists) {
-            console.log(`data/${category}.json - already exist`)
+// Main IIFE (Immediately Invoked Function Expression) to control the scraping process
+(async () => {
+    // Launch a browser instance
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.setViewport({width: 1200, height: 1024});
+
+    // Iterate over the categories to scrape the data
+    for (const category of CATEGORIES) {
+        const filePath = `data/${category}.json`;
+
+        // Skip if the file already exists
+        if (await doesFileExist(filePath)) {
+            console.log(`${filePath} - already exists`);
             continue;
         }
 
-        await browserPage.goto(`https://www.sport-hopfmann.de/wintersport-sport/${category}/?cl=alist&searchparam=&cnid=292&ldtype=grid&_artperpage=60&listorderby=oxvarminprice&listorder=desc&pgNr=0`);
-        await browserPage.waitForSelector('#productList');
+        // Navigate to the category page
+        await page.goto(`https://www.sport-hopfmann.de/wintersport-sport/${category}/?listorderby=oxvarminprice&listorder=desc`);
+        await page.waitForSelector('#productList');
 
-        const pageHtml = await browserPage.content();
-        const loadedHtml = cheerio.load(pageHtml);
+        // Retrieve and load the HTML content of the category page
+        const categoryPageHtml = await page.content();
+        const $categoryPage = cheerio.load(categoryPageHtml);
 
-        const skiProducts: { name: string, url: string }[] = [];
-        loadedHtml('.list-container .productBox').each((index, element) => {
-            const productName = loadedHtml(element).find('.productsTitle .hidden-xs.hidden-sm').text().trim();
-            const productUrl = loadedHtml(element).find('.productBox a').attr('href');
-            if (productName && productUrl) {
-                skiProducts.push({
-                    name: productName,
-                    url: productUrl,
-                });
-            }
-        });
+        // Extract product summaries (name and URL)
+        const productSummaries = extractProductSummaries($categoryPage);
 
+        // Array to hold detailed data of all products
+        const detailedProductData = [];
 
-        const detailedProductData: { productColors: any[] }[] = [];
-        for (const product of skiProducts) {
-            await browserPage.goto(product.url);
-            await browserPage.waitForSelector('#productinfo');
+        // Loop through each product to extract detailed information
+        for (const product of productSummaries) {
+            await page.goto(product.url);
+            await page.waitForSelector('#productinfo');
+            const productDetailPageHtml = await page.content();
+            const $productDetailPage = cheerio.load(productDetailPageHtml);
 
-            const detailedPageHtml = await browserPage.content();
-            const detailedHtml = cheerio.load(detailedPageHtml);
+            // Extract and log the main product variant details
+            const mainProductDetails = extractProductDetails($productDetailPage, product.url);
+            detailedProductData.push([mainProductDetails]);
+            console.log(`${mainProductDetails.productName} - Processed`);
 
-
-            const colorProductDetails = [];
-
-            const productDetails = extractProductDetails(detailedHtml, product.url);
-            colorProductDetails.push(productDetails);
-            console.log(`${productDetails.productName} - Done`);
-
-            const colorLinks: string[] = [];
-            detailedHtml('.colorContainer li:not(.active) a').each((index, element) => {
-                const colorLink = detailedHtml(element).attr('href') as string;
-                colorLinks.push(colorLink);
-            });
-
-            for (let colorLink of colorLinks) {
-                await browserPage.goto(colorLink);
-                await browserPage.waitForSelector('#productTitle');
-                const newDetailedPageHtml = await browserPage.content();
-                const newDetailedHtml = cheerio.load(newDetailedPageHtml);
-                const productDetails = extractProductDetails(newDetailedHtml, colorLink);
-                colorProductDetails.push(productDetails);
-                console.log(`${productDetails.productName} - Done`);
-            }
-
-
-            detailedProductData.push({productColors: colorProductDetails});
+            // Handle additional product variants (e.g., different colors)
+            await handleAdditionalVariants(page, $productDetailPage, detailedProductData);
         }
 
-        console.log('Scraping complete.');
-
-        fs.writeFileSync(`data/${category}.json`, JSON.stringify(detailedProductData, null, 4));
+        // Write the detailed product data to a file in a formatted way
+        await fsPromises.writeFile(filePath, JSON.stringify(detailedProductData, null, 4));
+        console.log(`Scraping complete for category: ${category}`);
     }
 
-
-    await browserInstance.close();
+    // Close the browser after scraping
+    await browser.close();
 })();
+
+// Function to check if the given file exists using async/await
+async function doesFileExist(filePath) {
+    try {
+        await fsPromises.access(filePath);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+// Function to extract product summaries from the category page HTML
+function extractProductSummaries($) {
+    const productSummaries = [];
+    $('.list-container .productBox').each((index, element) => {
+        const name = $(element).find('.productsTitle .hidden-xs.hidden-sm').text().trim();
+        const url = $(element).find('.productBox a').attr('href');
+        if (name && url) {
+            productSummaries.push({name, url});
+        }
+    });
+    return productSummaries;
+}
+
+// Function to handle additional product variants (e.g., different colors)
+async function handleAdditionalVariants(page, $, detailedProductData) {
+    const colorVariantLinks = [];
+    $('.colorContainer li:not(.active) a').each((index, element) => {
+        const variantUrl = $(element).attr('href');
+        if (variantUrl) {
+            colorVariantLinks.push(variantUrl);
+        }
+    });
+
+    for (const variantUrl of colorVariantLinks) {
+        await page.goto(variantUrl);
+        await page.waitForSelector('#productTitle');
+        const variantPageHtml = await page.content();
+        const $variantPage = cheerio.load(variantPageHtml);
+        const variantDetails = extractProductDetails($variantPage, variantUrl);
+        detailedProductData.push(variantDetails);
+        console.log(`${variantDetails.productName} - Processed`);
+    }
+}
 
 function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
     const brand = loadedHtml('.productManufacturer').text().trim();
