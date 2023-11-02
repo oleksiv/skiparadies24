@@ -292,7 +292,7 @@ async function createChild(childrenProductHash: string, parentId: string, produc
             {
                 "id": childrenProductHash,
                 "parentId": parentId,
-                "productNumber": v4(),
+                "productNumber": childrenProductHash,
                 "name": productName,
                 "ean": productEAN,
                 "stock": randomNum,
