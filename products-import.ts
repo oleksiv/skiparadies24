@@ -2,6 +2,7 @@ import axios, {AxiosResponse} from 'axios';
 import * as fs from "fs";
 import {Product} from "./models";
 import * as crypto from 'crypto';
+import { nanoid, customAlphabet } from 'nanoid';
 
 // Response interceptor
 // axios.interceptors.response.use(
@@ -121,22 +122,33 @@ async function createParent(product: Product, productId: string, configuratorSet
 
         return existingProduct;
     } catch (e) {
-        const hashedManufacturerId = crypto.createHash('md5').update(product.brand).digest('hex');
 
-        console.log(`${hashedManufacturerId} - ${product.brand} - manufacturer`);
+        let manufacturerId = undefined;
+        try {
+            const hashedManufacturerId = crypto.createHash('md5').update(product.brand).digest('hex');
+            await axios.get(`https://www.skiparadies24.de/api/product-manufacturer/${hashedManufacturerId}`, {headers});
+            manufacturerId = hashedManufacturerId;
+        } catch (error) {
+            console.log(`${product.brand} manufacturer doesnt exists`);
+        }
+
+        console.log(`${manufacturerId} - ${product.brand} - manufacturer`);
         const randomNum = await getRandomNumber(50, 300);
 
         const categoryIds = await getCategories(product, headers);
+
+        // Create a `nanoid` function that will use the custom alphabet
+        const nanoid = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', 8);
 
         const parentCreated = await axios.post('https://www.skiparadies24.de/api/product?_response=true',
             {
                 "id": productId,
                 "stock": randomNum,
-                "productNumber": productId,
-                "description": product.productDescription.trim(),
+                "productNumber": nanoid,
+                "description": product.productDescription,
                 "name": product.productName,
                 "ean": firstSize.productEAN,
-                ...(product.brand ? {manufacturerId: hashedManufacturerId} : {}),
+                ...(manufacturerId ? {manufacturerId: manufacturerId} : {}),
                 "taxId": "018b669100c5705d99f62820ab0514c5", // standard rate
                 "categories": categoryIds.map(id => ({id})),
                 "price": [

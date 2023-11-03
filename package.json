@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "@shopware-pwa/shopware-6-client": "^1.6.1",
+    "@types/nanoid": "^3.0.0",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",
     "md5": "^2.3.0",
+    "nanoid": "^5.0.2",
     "puppeteer": "^21.4.1",
     "uuidv4": "^6.2.13"
   }
