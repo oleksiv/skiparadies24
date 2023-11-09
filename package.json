@@ -8,6 +8,7 @@
     "products-export": "ts-node products-export.ts",
     "manufacturers-export": "ts-node manufacturers-export.ts",
     "manufacturers-import": "ts-node manufacturers-import.ts",
+    "sport-tiedje-export": "ts-node sport-tiedje/products-export.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
