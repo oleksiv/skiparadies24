@@ -31,8 +31,12 @@ const BASE_URL = `https://www.sport-tiedje.de`;
         }
 
         await browserPage.goto(`${BASE_URL}/${category}`);
-        await browserPage.waitForSelector('.list-products');
 
+        // Wait for the necessary element to ensure the page has loaded
+        await browserPage.waitForSelector('select#toolbar-input-per-page-top'); // Adjust the selector as needed
+
+        await browserPage.select('select#toolbar-input-per-page-top', '36');
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const pageHtml = await browserPage.content();
         const loadedHtml = cheerio.load(pageHtml);
 
@@ -50,7 +54,8 @@ const BASE_URL = `https://www.sport-tiedje.de`;
         const detailedProductData: any[][] = [];
         for (const product of products) {
             await browserPage.goto(`${BASE_URL}${product.url}`);
-            console.log(`${category} | ${product.name}`);
+
+            console.log(`${products.length} | ${category} | ${product.name}`);
 
             const detailedPageHtml = await browserPage.content();
             const detailedHtml = cheerio.load(detailedPageHtml);
