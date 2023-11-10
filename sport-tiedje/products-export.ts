@@ -36,6 +36,7 @@ const BASE_URL = `https://www.sport-tiedje.de`;
         const pageHtml = await browserPage.content();
         const loadedHtml = cheerio.load(pageHtml);
 
+
         const products: any[] = [];
         loadedHtml('.list-products .list-product-list').each((index, element) => {
             const productName = loadedHtml(element).find('.product-name a').text().trim();
@@ -45,8 +46,6 @@ const BASE_URL = `https://www.sport-tiedje.de`;
                 url: productUrl,
             });
         });
-
-        console.log(products);
 
         const detailedProductData: any[][] = [];
         for (const product of products) {
@@ -71,16 +70,44 @@ const BASE_URL = `https://www.sport-tiedje.de`;
 
 function extractProductDetails(loadedHtml: CheerioAPI, productUrl: string) {
     const title = loadedHtml('h1').text().trim();
+    const productBrand = loadedHtml('a.product-brand').attr('title');
+    const productBrandUrl = loadedHtml('a.product-brand img').attr('data-src');
+    const productPriceText = loadedHtml('#product-price-now span.text-nowrap').text().trim();
+    const productDescription = loadedHtml('#product-description .product-description').html();
+    const priceString = productPriceText.replace(/[^\d,]/g, '');
+    const productPrice = parseFloat(priceString.replace(',', '.'));
+
+    const categories: string[] = [];
+    loadedHtml('ul.breadcrumbs li a').each((index, element) => {
+        if (index > 0) {
+            const productCategory = loadedHtml(element).text().trim();
+            categories.push(productCategory)
+        }
+    });
 
     const images: any[] = [];
     loadedHtml('.carousel-inner .carousel-item a').each((index, element) => {
         images.push({
-            src:  loadedHtml(element).attr('href'),
+            src: loadedHtml(element).attr('href'),
         })
-    })
+    });
+
+    const ldJsonScript = loadedHtml('script[type="application/ld+json"]').eq(1).html();
+
+    let ean: string | undefined;
+    if (ldJsonScript) {
+        const jsonData = JSON.parse(ldJsonScript) as { gtin13: string };
+        ean = jsonData.gtin13;
+    }
 
     return {
+        ean,
         title,
-        images
+        images,
+        categories,
+        productPrice,
+        productBrand,
+        productBrandUrl,
+        productDescription,
     };
 }

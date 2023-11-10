@@ -1,5 +1,6 @@
 [
     {
+        "ean": "4251294111378",
         "title": "BodyCraft Kabelzugstation",
         "images": [
             {
@@ -17,9 +18,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/bodycraft/kraftstationen/cable-pull/bodycraft-kabelzugstation-05_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Kabelzugstation",
+            "BodyCraft Kabelzugstation"
+        ],
+        "productPrice": 1199,
+        "productBrand": "BodyCraft",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/bodycraft/bodycraft_t.png",
+        "productDescription": "\n          <span class=\"fett\">Kabelzüge sind in Physiotherapien und zu Hause häufig und gerne genutzte Alternativen zu klassischen Kraftstationen. Sie brauchen nur sehr wenig Platz, bieten dabei aber eine sehr große Bewegungsbandbreite und hervorragende Verstellbarkeit. Beim Bodycraft Kabelzug werden diese allgemeinen Vorteilen mit einer exzellenten Stabilität und sehr ansprechenden Optik kombiniert.</span> \n<h3>Kleiner Platzbedarf, großes Übungsspektrum: Bodycraft Kabelzugturm</h3> \nDer Bodycraft Kabelzug ist eine außergewöhnlich vielseitig einsetzbare Kraftstation, die dabei aber nur ein minimales Stellmaß von ca. ¼ Quadratmeter hat. Kabel- oder Seilzugstationen ermöglichen nahezu die ganze Bandbereite an Übungen – sowohl für Zug- als auch für Druckübungen.<br><br>Das Kabelzugstation ist mit zwei Pulleys ausgestattet, so können Sie Übungen mit einer Hand oder mit beiden Händen (z.B. Butterflies) ausführen. Da die Pulleys mit Karabinerhaken ausgestattet sind, lassen sich auch andere Kraftgriffe oder Zughilfen verwenden. So können Sie mit einem Parallelzuggriff sehr effektiv die Rückenmuskulatur mit einer Ruderbewegung trainieren. Mit einem Trizepstau können Sie Bizeps und Trizeps effektiv kräftigen. Die Ausstattung mit Karabinerhaken hat noch einen weiteren Vorteil: Die beiden Seilzüge lassen sich auch miteinander verbinden. Damit lässt sich der Widerstand verdoppeln. \n<h3>Viele Bewegungsmöglichkeiten – volle Range of Motion</h3> \nDie beiden Umlenkrollen/Kabelzüge lassen sich jeweils um 180° schwenken. Damit lässt sich bei allen Übungen der volle Bewegungsspielraum ausschöpfen. So lassen sich die Muskeln über Bewegungsweg trainieren und das Training wird maximal effektiv. Das Kabelzugmodul lässt sich auch in der Höhe 32-fach verstellen – Übungen im Sitzen sind genauso möglich wie Überkopfübungen, Bizeps-Curls im Stehen genauso wie Trizeps-Training.\n        "
     },
     {
+        "ean": "4251294108170",
         "title": "Taurus Kabelzugstation FCM",
         "images": [
             {
@@ -58,9 +70,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Taurus Multi Kraftstationen"
+        ],
+        "productPrice": 899,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          <h3>Doppel-Kabelzugstation für Kraft- und Beweglichkeitstraining</h3> \nDie <strong>Taurus Kabelzugstation FCM</strong> verbindet Kraft- und Beweglichkeitstraining. Die beiden Kabelzüge an den Seiten lassen sich vielfach in der Höhe verstellen und bieten so eine unglaublich große Übungsvielfalt. Die Kabelzüge können gleichzeitig oder einzeln genutzt werden – je nach Übung. Der Widerstand wird durch Gewichtsscheiben erzeugt. Sie können die Aufnahmen nach Belieben mit Hantelscheiben beladen und das Gewicht an die Übungen und Ihren Trainingsstand anpassen. \n \n<h3>Kabelzugstation mit cleveren Details für mehr Erfolg beim Training</h3> \nDie <strong>Taurus Kabelzugstation FCM</strong> wird mit sinnvollem Zubehör und einer sehr guten Ausstattung geliefert. Zum Lieferumfang gehören zum Beispiel zwei klassische Kraftgriffe zum Training an den Kabelzügen. Daneben sind Ablagen für eine Langhantelstange im Lieferumfang enthalten. Diese können in der Höhe frei positioniert werden. In Kombination mit einer Hantelbank können Sie an der Taurus Kabelzugstation FCM dann auch Bankdrücken üben.<br><br>Für den unteren Kabelzug wird eine kurze Stange mitgeliefert. Im Sitzen können Sie so Rudern trainieren und Ihren Rücken stärken, im Stehen unter anderem auch den Bizeps oder die Schultern. Außerdem verfügt die Taurus Kabelzugstation FCM über eine Klimmzugstange mit vier Griffmöglichkeiten. <br><br>An der Seite ist eine schwenkbare Aufnahme für Langhantelstangen angebracht. Dieser Core Trainer erlaubt zum Beispiel funktionale Übungen wie T-Bar-Rudern. Auf der hinteren Seite befinden sich Aufnahmen für Hantelscheiben, wenn diese beladen sind, bietet die Station eine noch höhere Stabilität. Das ist zum Beispiel sinnvoll, wenn Sie einen Schlingentrainer an der Taurus Kabelzugstation FCM anbringen möchten oder um die Gewichte nach dem Training ordentlich und übersichtlich zu verstauen. \n \n<h3>Solide Konstruktion für unübertroffene Stabilität</h3> \nDer Rahmen der Kabelzugstation ist aus äußerst strapazierfähigen, stählernen Kantrohren gefertigt. Der Rahmen ist entweder mit einer schwarzen Pulverbeschichtung oder einem Chrommantel überzogen und so gut gegen Kratzer oder Korosion geschützt. Aufgrund des breiten Fußes kann die Taurus Kabelzugstation FCM frei im Raum aufgestellt werden. Sie passt auch gut in die Raumecke, da alle Übungen nach vorne hin ausgeführt werden.\n        "
     },
     {
+        "ean": "4251294112740",
         "title": "Taurus Performance Gym",
         "images": [
             {
@@ -90,9 +113,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Taurus Multi Kraftstationen"
+        ],
+        "productPrice": 2999,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          \n            \n          \n            \n          \n            \n          \n            \n          \n            \n          \n            \n          \n            \n  <div class=\"block-text mb-4\">\n    \n    <div>Das Taurus Performance Gym bietet maximale Funktionalität und Flexibilität im Krafttraining. Die beiden Kabelzüge lassen sich vielfach in der Höhe verstellen und haben einen weiten Rotationsradius, so lassen sich alle Übungen mit der maximalen Range of Motion ausführen. Schnellverschlüsse erlauben einen schnellen Wechsel der Griffe. Daneben ist die Station mit einer Klimmzug- und einer Dipstation sowie einem klappbaren Rückenpolster ausgestattet. </div>\n  </div>\n\n          \n            \n  <div class=\"block-text mb-4\">\n    <h3 class=\"font-weight-bold\">Maximale Flexibilität für eine maximale Performance</h3>\n    <div>Die sehr stabile und dabei doch kompakte Kraftstation Taurus Performance Gym ist mit zwei Kabelzugstationen ausgerüstet, die sich dank eines sehr leichtgängigen Mechanismus 20fach in der Höhe verstellen lassen. So lassen sich Übungen am tiefen Kabelzug (z.B. Bizepscurls), auf mittlerer Höhe (z.B. Pec Flys) oder am sehr hohen Kabelzug für den Trizeps oder den Rücken ausführen.\n<br> <br>\nDie Kabelzüge laufen über große Umlenkrollen, die ein sehr gleichmäßiges, glattes Zugverhalten garantieren. Jeder der Kabelzüge verfügt über einen eigenen Gewichtsblock mit 68 kg, der sich in 15 Stufen fein einstellen lässt. Dank des Übersetzungsverhältnisses von 2:1 ist die Widerstandseinstellung besonders fein.\n<br> <br>\nDie Kabelzüge haben einen cleveren Quick-Release-Mechanismus; dank diesem lassen sich die Zughilfen besonders schnell tauschen. Im Lieferumfang sind u.a. zwei Griffschlaufen, eine Beinschlaufe, ein Textilgurt zur Unterstützung bei Klimmzügen sowie eine lange Griffstange enthalten. Das Performance Gym verfügt außerdem über eine Klimmzugstange mit verschiedensten Griffmöglichkeiten, um effektives Training mit dem eigenen Körpergewicht zu ermöglichen. Dazu zählen auch spezielle Klettergriffe, wie man sie vom Bouldern kennt. Zur Unterstützung bei Übungen im Stehen ist das Multigym mit einem klappbaren Rückenpolster ausgestattet. Das Ablagefach im hinteren Bereich bietet Platz für eine Getränkeflasche, Handtücher und weitere Accessoires. </div>\n  </div>\n\n          \n        "
     },
     {
+        "ean": "4251294117561",
         "title": "Taurus Dual Kabelzugstation MFT",
         "images": [
             {
@@ -101,9 +135,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Taurus Multi Kraftstationen"
+        ],
+        "productPrice": 2499,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          <h3>Entfesseln Sie Ihr ganzes Potenzial an der <strong>Taurus Dual Kabelzugstation MFT</strong></h3>\n\nErleben Sie die Vielseitigkeit und die vielen positiven Wirkungen von Krafttraining mit unserer Doppel-Kabelzugstation. Dieses außergewöhnliche Gerät verfügt über zwei separat nutzbare, höhenverstellbare Kabelzüge und eröffnet eine Vielzahl von Übungsmöglichkeiten, um Ihren Körper zu formen und Ihre Fitnessziele zu erreichen.<br><br>Die Kabelzugstation hat zwei unabhängige Kabelzüge, die jeweils 17-fach in der Höhe verstellbar sind. Beim Gewichtsblock haben Sie zwei Optionen: 59 kg oder 90 kg. Dabei kommt ein Übersetzungsverhältnis von 2:1 zum Tragen – so können Sie das Gewicht noch feiner einstellen und das Kabel lässt sich noch weiter herausziehen, was die Zahl der Übungen noch einmal beträchtlich erweitert.<br><br>Ein weiteres Highlight der Kabelzüge: Die Arme sind um 180° schwenkbar und in acht Positionen fixierbar. So können Sie die Arme auf beiden Seiten nach außen schwenken, wenn Sie zum Beispiel Crossover-Übungen ausführen wollen, oder Sie stellen die Griffe nach innen und probieren sich am Bankdrücken mit engem Griff. So treffen Sie Ihren Trizeps noch besser.\n<h3>Umfassendes Zubehörpaket für ein Rundum-Training</h3>\nUm all diese Übungen sicher und effektiv ausführen zu können, wird die <strong>Taurus Dual Kabelzugstation MFT</strong> mit einem ziemlich umfangreichen Zubehör-Paket geliefert. Im Lieferumfang enthalten sind verschiedene Stangen unterschiedlicher Länge, Ketten und Karabinerhaken, um auch hier noch einmal das Training anpassen zu können. Es gibt eine Fußschlaufe, ein Rückenpolster zur Unterstützung bei Übungen im Stehen, eine Klimmzugstation und und und ... <br><br>\nTrotz seiner umfangreichen Funktionalität bietet die Station eine kompakte Stellfläche. Das robuste Design gewährleistet Stabilität auch bei anspruchsvollen Workouts. Ein 7-Haken-Aufbewahrungssystem hält Ihr Zubehör organisiert, während Features wie ein Flaschenhalter und eine Halterung für Kurzhanteln oder Rudergriffe Ihre Trainingserfahrung verbessern.\n        "
     },
     {
+        "ean": "4251294104868",
         "title": "Taurus Kabelzugstation",
         "images": [
             {
@@ -145,9 +190,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Taurus Multi Kraftstationen"
+        ],
+        "productPrice": 999,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          Die <strong>Taurus Kabelzugstation</strong> ist ein multifunktionales Trainingsgerät für den Kraftsport zu Hause. Die ca. 230 cm hohe Kraftstation ist besonders platzsparend, auf nicht einmal ¼ qm steht Ihnen eine riesige Übungsvielfalt zur Auswahl. Da Sie das Seil sowohl nach oben, nach unten wie auch gerade ziehen können, ist die Zahl der möglichen Übungen sehr groß und nahezu alle Muskeln werden angesprochen. Curls, Fliegende oder Trizepsdrücken sind nur einige Übungsbeispiele.<br><br>Im Lieferumfang der <strong>Taurus Kabelzugstation</strong> sind bereits eine Latzugstange sowie zwei Kraftgriffe enthalten. Mit weiteren separat erhältlichen Zughilfen lässt sich die Übungsvielfalt noch einmal beträchtlich erhöhen. Andere Griffe können ganz einfach an der Taurus Kabelzugstation befestigt werden, da sie über Karabinerhaken verfügt.<br><br>\n In der Kabelzugstation befinden sich 16 Gewichtsplatten mit einem Übersetzungsverhältnis von 2:1, so dass der Widerstand sich sehr fein einstellen lässt. So ist die Taurus Kabelzugstation für leichtes Regenerations-Training ebenso wie für gezieltes Muskelaufbau-Training geeignet. Die Gewichtsplatten sind durch einen Magnetstift gesichert. Für einen optimalen und sicheren Stand  muss die Taurus Kabelzugstation an der Wand befestigt werden. Dazu sind Vorbohrungen am Rahmen angebracht.\n        "
     },
     {
+        "ean": "",
         "title": "BodyCraft XFT Functional Trainer",
         "images": [
             {
@@ -171,9 +227,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/bodycraft/xft/bodycraft-xft-07_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "BodyCraft Multi Kraftstationen"
+        ],
+        "productPrice": 3499,
+        "productBrand": "BodyCraft",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/bodycraft/bodycraft_t.png",
+        "productDescription": "\n          Der Bodycraft XFT – der Xtreme Functional Trainer – bietet die volle Freiheit des Hanteltrainings in Kombination mit der Sicherheit einer Kraftstation. Dabei sticht vor allem die 3D-Smith-Machine heraus. Dabei handelt es sich um eine gesicherte Langhantelstange, die vollkommen frei sowohl in der Horizontalen wie auch der Vertikalen bewegt werden kann. Daneben verfügt der XFT über höhenverstellbare, 180° schwenkbare Kabelzüge sowie eine Klimmzugstation.\n<h3>Revolutionäres Hanteltraining mit absoluter Bewegungsfreiheit und Sicherheit</h3>\nDie 3D-Hantelstange des Xtreme Functional Trainers kann in der Horizontalen bis zu 51 cm vor und zurück bewegt werden. Dieses einzigartige Bewegungskonzept wird mit einer abgesicherten vertikalen Bewegung (152 cm) kombiniert. Das erlaubt eine unglaublich flüssige, freie Bewegung, die die Vorteile des freien Hanteltrainings mit noch mehr Sicherheit und Flexibilität komibiniert.<br><br>Die Hantelstange dieser 3D-Smith-Station hat eine Funktion, die andere Smith Machines in der Regel nicht bieten: Die Hantelstange dreht mit! Dadurch werden die Handgelenke deutlich entlastet – zum Beispiel bei Bizeps-Curls. Da kann man die Handgelenke nun gerade lassen und so die Übung wie mit Freihanteln ausführen. Das ist bei den meisten Smith Stationen nicht möglich.\n\n<h3>Multipresse mit Gegengewicht zur präzisen Leistungsmessung</h3>\nDie Hantelstange ist mit einem Gegengewicht ausgestattet, so wird das Gewicht der Hantelstange ausgeglichen. Wenn Sie nun also 10 kg beim Gewichtsblock auswählen, drücken Sie auch wirklich nur 10 kg und nicht noch das Gewicht der Hantelstange. Nach unserer Meinung eine unverzichtbare Funktion bei Smith Machines!\n\n<h3>Einfaches System zur Gewichtssteigerung ohne zusätzliche Gewichte!</h3>\nBei einigen Übungen (z.B. Squats) reicht der Standard-Gewichtsblock (67,5 oder 90 kg) vielleicht nicht mehr ganz aus. Dafür gibt es aber einen einfachen Trick. Verbinden Sie einfach die Karabinerhaken der Kabelzüge mit der 3D-Hantelstange und verdoppeln Sie so das Trainingsgewicht!\n\n<h3>Doppelkabelzugsystem für maximale Übungsvielfalt</h3>\nAn jeder Seite der Multi-Trainingsstation befindet sich ein vielfach höhenverstellbarer Kabelzug, jeweils um 180° schwenkbar. So lassen sich zahlreiche Übungen mit der maximalen Bewegungsrange ausführen – unverzichtbar für den maximalen Trainingserfolg. Bei der Herstellung des Kabelzugsystems werden nur High-Quality-Komponenten verwendet, die das Zugverhalten perfektionieren. Die Kabelzüge lassen sich unabhängig und zusammen nutzen.\n        "
     },
     {
+        "ean": "4251294111453",
         "title": "BodyCraft Kabelzugstation HFT inkl. Hantelbank F603",
         "images": [
             {
@@ -197,9 +264,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/bodycraft/hantelbank/f603-diamont%20grey/bild_2_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "BodyCraft Multi Kraftstationen"
+        ],
+        "productPrice": 2598,
+        "productBrand": "BodyCraft",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/bodycraft/bodycraft_t.png",
+        "productDescription": "\n          <h3>Hantelbank F603 als Aktionsangebot</h3>\nMit enthalten ist in diesem Set die F603 Hantelbank. Sparen Sie weitere 100,00€ bei diesem Aktions-Set.\n<h3>Functional Training an der Kraftstation</h3>\nAn der <strong>BodyCraft Kabelzugstation HFT inkl. Hantelbank F603</strong> trainieren Sie, wie Sie wollen. Kabelzugstationen bieten nämlich ein hervorragendes Übungsspektrum. Sie lassen sich <strong>individuell einstellen</strong> und die Übungsausführung verläuft nicht in einer vorgegebenen Weise. Anders als bei klassischen Kraftstationen ist die Ausführung ungeführt. Dadurch wird das Training am Bodycraft Home Functional Trainer funktional: <strong>Sie trainieren nicht nur die Muskeln, Sie trainieren Bewegungen.</strong>\n<h3>Volle Bewegungsfreiheit mit dem Home Functional Trainer</h3>\nDie beiden Kabelzüge der HFT Kraftstation von Bodycraft können unabhängig voneinander benutzt werden. Dabei lässt sich jeder Pulley in 31 Stufen in der Höhe verstellen. Die Umlenkrollen der Kabelzüge sind dabei 180° schwenkbar. Dadurch ist das <strong>Training variantenreicher</strong>, Sie können <strong>aus jeder Position trainieren</strong> und noch <strong>mehr Muskeln</strong> effektiv trainieren.\n<h3><strong>BodyCraft Kabelzugstation HFT inkl. Hantelbank F603</strong>: starkes Zubehör und starke Verarbeitung</h3>\nDer BodyCraft Kabelzugstation HFT inkl. Hantelbank F603 ist erstklassig verarbeitet. Die Zugkabel sind extrem belastbar und laufen über sehr große Umlenkrollen, damit die Bewegung gleichmäßiger ist. Die Kugellager sind versiegelt, so können weder Feuchtigkeit noch Schmutz eindringen. Ein konstanter Rundlauf ist damit gewährleistet. Die BodyCraft Kabelzugstation HFT inkl. Hantelbank F603 wird mit umfangreichem Zubehör geliefert, dazu zählen viele verschiedene Kraftgriffe, aber auch Ketten, mit denen sie sich zusätzliche Gewichte umhängen können, sollten Ihnen die Übungen an der Klimmzugstange zu leicht werden.\n        "
     },
     {
+        "ean": "4260263011403",
         "title": "NOHRD Kabelzugstation SlimBeam",
         "images": [
             {
@@ -262,9 +340,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/nohrd/slimbeam/Testsiegel/SB_Testsiegel_2_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Kabelzugstation",
+            "NOHRD Kabelzugstation"
+        ],
+        "productPrice": 1799,
+        "productBrand": "NOHRD",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/nohrd/nohrd_t.png",
+        "productDescription": "\n          <h3><strong>NOHRD Kabelzugstation SlimBeam</strong> für funktionelles Training</h3>\nBeim Funktionellen Training — wie an der <strong>NOHRD Kabelzugstation SlimBeam</strong> — trainieren Sie einfach komplex: Die Übungsauführung ist ganz einfach. Sie trainieren aber komplexe Muskelgruppen. Das macht Sie leistungsfähiger, denn Sie trainieren auch die Koordination zwischen verschiedenen Muskeln.<br><br>Die NOHRD Kabelzugstation SlimBeam ermöglicht ein vielfältiges Training. Den Doppelseilzug können Sie in der Höhe frei einstellen. So können Sie z.B. Übungen für Brust, für den Bizeps oder den Bauch ausführen. Außerdem schwenken die Seilzüge frei nach innen oder außen. Das ermöglicht Ihnen Übungen mit weitem oder engem Griff. In dem Trainingshandbuch werden Ihnen unzählige verschiedene Übungen erklärt. Mit diesen können Sie den ganzen Körper mit wechselnder Intensität trainieren.\n<h3>Das Training an der NOHRD Kabelzugstation SlimBeam bietet also vielfältige Vorteile:</h3><ul><li>Einfache Übungsausführung</li><li>Training ganzer Muskelgruppen</li><li>Muskelaufbau, Beweglichkeit und Koordination</li><li>Gezieltes Beseitigen muskulärer Schwachpunkte</li><li>Spaß und Abwechslung beim Workout</li></ul>\n<h3>Der SlimBeam ist eine Kraftstation fürs Auge</h3>\nDie NOHRD Kabelzugstation SlimBeam ist nicht nur äußerst funktionell. Die kleine Kraftstation sieht auch gut aus. Form und Funktion ergänzen sich perfekt. Der SlimBeam hat ein Design, mit dem er sich optimal in die Wohnung integriert werden kann. Die NOHRD Kabelzugstation SlimBeam ist auch äußerst platzsparend. Es gibt die edle Trainingsstationen in verschiedenen Farbvarianten.\n<h3>Individuell einstellbarer Gewichtswiderstand</h3>\nEinzigartig bei der SlimBeam Kabelzugstation ist die Möglichkeit, den Zugwiderstand durch eine anderes Übersetzungsverhältnis zu variieren. So lässt sich \ndie Trainingsintensität optimal an das Fitnesslevel anpassen. Besonders interessant wird der SlimBeam Kabelzug dadurch auch für physiotherapeutisches oder \nReha-Training. Mit einem Maximalwiderstand von 75 kg ist der SlimBeam aber auch für Kraftsportler geeignet. Die folgende Tabelle zeigt die möglichen \nGewichtsabstufungen:<br><br>\n<div class=\"table-responsive\"><table rules=\"all\" width=\"75%\" border=\"1\" class=\"table table-sm\">\n<tbody>\n<tr>\n<td><strong>Übersetzungsverhältnis</strong></td>\n<td><strong>3:1 Übersetzung</strong></td>\n<td><strong>2:1 Übersetzung</strong></td>\n<td><strong>1:1 Übersetzung</strong></td>\n</tr>\n<tr>\n<td>Einfacher Zug</td>\n<td>0,83 - 12,50 kg</td>\n<td>1,25 - 18,75 kg</td>\n<td>2,50 - 37,50 kg</td>\n</tr>\n<tr>\n<td>Zweifacher Zug</td>\n<td>1,65 - 25,00 kg</td>\n<td>2,50 - 37,50 kg</td>\n<td>5,00 - 75,00 kg</td>\n</tr>\n</tbody>\n</table></div>\n<br>\n<span class=\"fett\">Die NOHRD Kabelzugstation SlimBeam wird standardmäßig mit der 3:1 Übersetzung geliefert. Unser Service-Team berät Sie aber gerne, wenn Sie eine andere Übersetzung bevorzugen.</span>\n        "
     },
     {
+        "ean": "4005251363603",
         "title": "Inspire by Hammer Kabelzugstation FT1",
         "images": [
             {
@@ -306,9 +395,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/hammer/kraftstationen/FT1/3552-kraftstation-inspire-ft1-model-13_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Inspire Multi Kraftstationen"
+        ],
+        "productPrice": 2999,
+        "productBrand": "Inspire",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/inspire/inspire_t.png",
+        "productDescription": "\n          <h3>Die kompakte Kraftstation für ein effektives Ganzkörpertraining!</h3>\nDer FT1 Kabelzug von Inspire bietet Ihnen auf sehr geringer Stellfläche eine große Bandbreite an Übungsmöglichkeiten. Die Kabelzugstation verfügt über zwei unabhängige Zugstürme, an denen mit jeweils 75 Kilogramm trainiert werden kann und eignet sich perfekt für Ihr Kraft- oder Functional Training. Darüber hinaus verfügt die FT1 über eine sehr professionelle Zubehörauswahl sowie eine eingebaute Klimmzugstange. Zu dem umfangreichen Zubehör-Set gehören eine SZ-Stange, Trizepsseil, Langhantelstange, Curlstange und drehbare Handgriffe. Mit den zahlreichen Trainingsmöglichkeiten der FT1 können Sie Ihren Körper jedes Mal aufs Neue herausfordern.\n        "
     },
     {
+        "ean": "4251294111446",
         "title": "BodyCraft Kabelzugstation HFT",
         "images": [
             {
@@ -326,9 +426,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/bodycraft/kraftstationen/hft/bodycraft-hft-kabelzugstation-5_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "BodyCraft Multi Kraftstationen"
+        ],
+        "productPrice": 2299,
+        "productBrand": "BodyCraft",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/bodycraft/bodycraft_t.png",
+        "productDescription": "\n          <h3>Functional Training an der Kraftstation</h3>\nAn der <strong>BodyCraft Kabelzugstation HFT</strong> trainieren Sie, wie Sie wollen. Kabelzugstationen bieten nämlich ein hervorragendes Übungsspektrum. Sie lassen sich <strong>individuell einstellen</strong> und die Übungsausführung verläuft nicht in einer vorgegebenen Weise. Anders als bei klassischen Kraftstationen ist die Ausführung ungeführt. Dadurch wird das Training am Bodycraft Home Functional Trainer funktional: <strong>Sie trainieren nicht nur die Muskeln, Sie trainieren Bewegungen.</strong>\n<h3>Volle Bewegungsfreiheit mit dem Home Functional Trainer</h3>\nDie beiden Kabelzüge der HFT Kraftstation von Bodycraft können unabhängig voneinander benutzt werden. Dabei lässt sich jeder Pulley in 31 Stufen in der Höhe verstellen. Die Umlenkrollen der Kabelzüge sind dabei 180° schwenkbar. Dadurch ist das <strong>Training variantenreicher</strong>, Sie können <strong>aus jeder Position trainieren</strong> und noch <strong>mehr Muskeln</strong> effektiv trainieren.\n<h3><strong>BodyCraft Kabelzugstation HFT</strong>: starkes Zubehör und starke Verarbeitung</h3>\nDer BodyCraft Kabelzugstation HFT ist erstklassig verarbeitet. Die Zugkabel sind extrem belastbar und laufen über sehr große Umlenkrollen, damit die Bewegung gleichmäßiger ist. Die Kugellager sind versiegelt, so können weder Feuchtigkeit noch Schmutz eindringen. Ein konstanter Rundlauf ist damit gewährleistet. Die BodyCraft Kabelzugstation HFT wird mit umfangreichem Zubehör geliefert, dazu zählen viele verschiedene Kraftgriffe, aber auch Ketten, mit denen sie sich zusätzliche Gewichte umhängen können, sollten Ihnen die Übungen an der Klimmzugstange zu leicht werden.\n        "
     },
     {
+        "ean": "4251294115710",
         "title": "Taurus Kabelzugstation Design Line Dual",
         "images": [
             {
@@ -367,9 +478,20 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Multi Kraftstationen",
+            "Taurus Multi Kraftstationen"
+        ],
+        "productPrice": 1799,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          Dürfen wir Ihnen den Taurus Design Line Doppelkabelzug vorstellen: eine platzsparende und gleichzeitig anspruchsvolle Ergänzung für jedes Home-Gym. Dieses Gerät verbindet erstklassiges Design und hohe Funktionalität und lässt so keine Wünsche mehr offen.\n<br><br>Mit seinem schlanken Design passt dieses Gerät perfekt in jedes Zuhause, ohne dabei Kompromisse in Bezug auf seine Fähigkeiten einzugehen. Mit nur 27 cm Abstand zur Wand ist der Design Line Kabelzug eine besonders platzsparende Kraftstation, die sich nahtlos in Ihr Wohnambiente einfügt.<br><br>\nEntscheiden Sie sich zwischen zwei einzigartigen Design-Varianten: eine mit verspiegelter Acryl-Oberfläche und eine andere mit Acrylglas im Graphite-Look. Beide Optionen sind echte optische Highlights. Der Spiegel bietet sogar noch eine zusätzliche nützliche Funktion: Sie können Ihre Übungsausführung im Spiegel kontrollieren und gegebenenfalls korrigieren.\n<br><br>\nDer Doppelkabelzug bietet ein außerordentlich \"rundes\" Zugverhalten - gleichmäßig in jedem Stadium der Übungsausführung. Dies wird durch den Einsatz von Nylon ummantelten Stahlseilen und leicht laufenden, kugelgelagerten Umlenkrollen erreicht. Darüber hinaus bieten die schwenkbaren Griffe eine große Range of Motion, was zu einem vielseitigen und effektiven Training beiträgt.\n<br><br>Beim Gewichtsblock haben Sie die Wahl zwischen 67,5 kg oder 90 kg. Sie können aber auch nachträglich noch eine Gewichtserweiterung von 67,5 kg auf 90 kg ordern. Mit 32 Höhenstufen und weit schwenkbaren Zuggriffen bietet diese Station eine enorme Übungsvielfalt. Dank der Karabinerhaken können Sie auch andere Griffe und Zughilfen problemlos verwenden.\n<br><br>\nHergestellt aus hochwertigen Materialien wie Acryl-Verkleidungen, einem Stahlrahmen und Aluminiumrollen, steht diese Station für Langlebigkeit und Beständigkeit. Acryl ist bruchsicher, stabil, leicht und einfach zu pflegen, was dieses Gerät zu einer erstklassigen Wahl für Ihr Home-Gym macht.<br><br>\nMit dem Doppelkabelzug erhalten Sie ein Gerät, das sowohl optisch ansprechend als auch funktional überzeugt. Entdecken Sie die Vielfalt und Effizienz, die dieses Gerät in Ihr Training bringt, und erleben Sie ein Trainingsgefühl, das Sie nicht mehr missen möchten.\n        "
     },
     {
+        "ean": "4251294116977",
         "title": "Taurus Studio Cable Crossover Elite",
         "images": [
             {
@@ -378,6 +500,16 @@
             {
                 "src": "https://resources.sport-tiedje.com/bilder/taurus/brand-award/taurus-brand-award-2023_de_1600.jpg"
             }
-        ]
+        ],
+        "categories": [
+            "Krafttraining",
+            "Kraftstation",
+            "Studio-Kraftgeräte",
+            "Taurus Studio-Kraftgeräte"
+        ],
+        "productPrice": 4499,
+        "productBrand": "Taurus",
+        "productBrandUrl": "https://resources.sport-tiedje.com/bilder/taurus/taurus_t.png",
+        "productDescription": "\n          Crossover Kabelzüge sind aus keinem ernstzunehmenden Gym wegzudenken. So bieten sie bei Nutzung beider Kabelzugstationen gleichzeitig ein extrem effizientes Brusttraining. Die Kabelzüge lassen sich aber alleine nutzen, etwa für Bizeps- oder Trizepsübungen.\n        "
     }
 ]
